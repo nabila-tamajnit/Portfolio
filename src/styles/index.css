@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Configuration du thème */
+@theme {
+  /* Couleurs */
+  --color-sage-green: #6B9080;
+  --color-sage-dark: #5a7a6d;
+  --color-dark-bg: #0B0D10;
+  --color-dark-card: #141414;
+  
+  /* Fonts */
+  --font-family-poppins: 'Poppins', sans-serif;
+  --font-family-inter: 'Inter', sans-serif;
+}
+
+/* Styles de base */
+body {
+  font-family: var(--font-family-inter);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-poppins);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-dark);
+}
