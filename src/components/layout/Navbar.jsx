@@ -9,8 +9,7 @@ export const Navbar = () => {
     const navLinks = [
         { name: 'À propos', href: '#about' },
         { name: 'Compétences', href: '#skills' },
-        { name: 'Projets', href: '#projects' },
-        { name: 'Contact', href: '#contact' }
+        { name: 'Projets', href: '#projects' }
     ]
 
     const toggleMenu = () => setIsOpen(!isOpen);
@@ -21,7 +20,7 @@ export const Navbar = () => {
 
                 {/* ------ LOGO ----- */}
                 <a href="#" className="flex items-center">
-                    <Logo variant="dualWhite" className="w-10 h-10" />
+                    <Logo variant="dualWhite" className="w-12 h-12" />
                 </a>
 
                 {/* ----- LIENS ----- */}
@@ -36,6 +35,16 @@ export const Navbar = () => {
                             </a>
                         </li>
                     ))}
+
+
+                    <li>
+                        <a
+                            href="#contact"
+                            className="px-6 py-2.5 bg-sage-green text-white font-medium hover:bg-sage-dark transition-colors"
+                        >
+                            Contact
+                        </a>
+                    </li>
                 </ul>
 
                 {/* ----- BOUTON BURGER ----- */}
@@ -73,6 +82,15 @@ export const Navbar = () => {
                                 </a>
                             </li>
                         ))}
+
+                        <li>
+                            <a
+                                href="#contact"
+                                className=" text-xl px-6 py-2.5 bg-sage-green text-white font-medium rounded hover:bg-sage-dark transition-colors"
+                            >
+                                Contact
+                            </a>
+                        </li>
                     </ul>
                 </div>
             )}
