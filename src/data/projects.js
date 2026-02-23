@@ -6,8 +6,7 @@ export const projects = [
     image: '/assets/projects/devpath.jpg',
     tags: ['HTML', 'CSS', 'JavaScript', 'Figma'],
     github: 'https://github.com/nabilatamajnit/devpath-junior',
-    demo: 'https://devpath-junior.netlify.app',
-    featured: true
+    demo: '#',
   },
   {
     id: 2,
@@ -17,7 +16,6 @@ export const projects = [
     tags: ['React', 'Tailwind CSS', 'Vite'],
     github: '#',
     demo: '#',
-    featured: false
   },
   {
     id: 3,
@@ -27,6 +25,5 @@ export const projects = [
     tags: ['React', 'Node.js', 'MongoDB'],
     github: '#',
     demo: '#',
-    featured: false,
   }
 ];
