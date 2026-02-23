@@ -18,49 +18,58 @@ export const About = () => {
     ]
 
     return (
-        <section className="min-h-screen flex justify-center items-center" >
-            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 w-full items-center">
-                <div>
-                    <p></p>
-                    <h2 className="text-6xl font-bold text-green-bg mb-6">À propos de moi</h2>
-                    <div className="text-lg flex flex-col gap-4">
+        <section className="min-h-screen flex justify-center items-center pt-25" >
+            <div className="max-w-7xl mx-4 lg:mx-auto grid lg:grid-cols-2 gap-12 w-full items-center rounded-2xl p-4 lg:p-8  ">
 
-                        <p>Le développement web est devenu pour moi bien plus qu’un apprentissage : c’est un espace où je peux allier rigueur et créativité. J’aime transformer une idée en interface fonctionnelle, claire et cohérente.</p>
+                {/* À propos */}
+                <div className=" h-full flex flex-col">
+                    <p className="text-sm lg:text-base text-sage-green font-medium mb-10 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-sage-green rounded-full"></span>
+                        01. À PROPOS 
+                        <span className=" h-0.5 w-50 lg:w-110 bg-gradient-to-r from-sage-green to-white" ></span>
+                    </p>
+                    <h2 className=" text-6xl lg:text-7xl font-bold text-green-bg mb-6">À propos <br /> de moi</h2>
+                    <div className=" text-lg lg:text-xl text-green-bg flex flex-col gap-4 bg-white lg:pr-14 rounded-xl">
 
-                        <p>Ce qui me motive particulièrement ? Relever des défis techniques et simplifier des problématiques complexes pour en faire des solutions fluides et élégantes.</p>
+                        <p>Coder est pour moi bien plus qu’un apprentissage : c’est un espace où je <span className="font-bold">me challenge</span> et où je <span className="font-bold">me révèle</span>.</p>
 
-                        <p>En formation de développeuse web, je construis chaque jour des bases solides, avec l’envie constante de progresser et d’évoluer dans un environnement professionnel stimulant.</p>
+                        <p>J’aime aller au fond des choses, comprendre, ajuster et tester jusqu’à obtenir quelque chose de clair et cohérent. Le développement m’apporte cette <span className="font-bold">concentration</span> intense où le temps passe sans que je m’en rende compte.</p>
+
+                        <p>Actuellement en formation chez Interface3, c'est avec ambition que je souhaite <span className="font-bold">progresser</span> et <span className="font-bold">évoluer</span> dans un environnement professionnel dès juin 2026.</p>
 
                     </div>
-
                 </div>
 
-                <div className="flex flex-col gap-10">
-                    {/* <div className="bg-green-bg text-white rounded-xl">
+                {/* Code - Atouts */}
+                <div className=" h-full flex flex-col gap-12">
+
+                    {/* Code */}
+                    <div className="bg-green-bg rounded-xl">
                         <div className="bg-dark-bg h-10 rounded-t-xl" >
                         </div>
-                        <div className="px-5 py-8">
+                        <div className="px-8 py-8 text-white">
                             <p><span className="text-purple-const">const</span > <span className="text-blue-const">nabila</span> = {"{"} </p>
                             <div className="px-5">
                                 <p><span className="text-red-const">role:</span> <span className="text-green-const" >"Web Developer"</span>,</p>
-                                <p> <span className="text-red-const">passion:</span> <span className="text-green-const">"Transformer idées → interfaces"</span>,</p>
+                                <p> <span className="text-red-const">passion:</span> <span className="text-green-const">"Coder"</span>,</p>
                                 <p> <span className="text-red-const">stack:</span> [<span className="text-green-const">"React", "Node.js", "MongoDB", "..."</span>],</p>
                                 <p> <span className="text-red-const">learning:</span> <span className="text-green-const">"Toujours plus..."</span>,</p>
                                 <p> <span className="text-red-const">disponible:</span> <span className="text-green-const">"Juin 2026"</span></p>
                             </div>
                             <p> {"}"}; </p>
-                            <p className="italic mt-3 text-gray-500">// Pête à relever des nouveaux défis !</p>
+                            <p className="italic mt-3 text-gray-500">// Prête à relever de nouveaux défis !</p>
                         </div>
 
-                    </div> */}
+                    </div>
 
-                    <div>
-                        <h3 className="text-2xl font-bold mb-3">Mes atouts</h3>
+                    {/* Atouts */}
+                    <div >
+                        <h3 className="text-3xl font-semibold mb-6">Mes atouts</h3>
                         <div className="grid grid-cols-2 grid-rows-2 gap-5">
                             {myStrengths.map((name) => (
                                 <div
                                     key={name}
-                                    className="bg-sage-white py-4 rounded-xl" >
+                                    className=" bg-sage-white py-4 rounded-xl" >
                                     <p className="text-center text-lg font-medium text-gray-700">{name.name}</p>
                                 </div>
                             ))}
