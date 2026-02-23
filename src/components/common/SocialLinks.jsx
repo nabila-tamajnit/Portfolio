@@ -31,7 +31,7 @@ export const SocialLinks = () => {
   ];
 
   return (
-    <div className="flex flex-wrap gap-8" >
+    <div className="flex flex-wrap justify-center md:justify-start gap-8" >
       {socialLinks.map((link) => (
         <a
           key={link}
