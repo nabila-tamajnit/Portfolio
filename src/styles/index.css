@@ -2,10 +2,23 @@
 
 @theme {
   /* Couleurs */
+  --color-dark-bg: #0B0D10;
+  --color-green-bg: #1e1e24;
+  --color-white-bg: #f8f9fa;
+
   --color-sage-green: #6B9080;
   --color-sage-dark: #5a7a6d;
-  --color-dark-bg: #0B0D10;
+  --color-sage-light: #86B29F;
+  --color-sage-white: #EFF4F2;
+  
   --color-dark-card: #141414;
+
+  --color-gray-font: #5e6472;
+
+  --color-purple-const: #C678DC;
+  --color-blue-const: #61AFEF;
+  --color-red-const: #E16C75;
+  --color-green-const: #98C379;
   
   /* Fonts */
   --font-family-poppins: 'Poppins', sans-serif;
