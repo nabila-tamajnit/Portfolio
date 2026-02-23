@@ -5,23 +5,22 @@ export const Hero = () => {
     return (
         <section className="min-h-screen bg-dark-bg flex pt-22 px-6 lg:px-12 item" >
 
-            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 w-full">
+            <div className="max-w-7xl xl:max-w-8xl mx-auto grid lg:grid-cols-2 gap-12 w-full items-center">
 
-                <div className="flex flex-col justify-between gap-10 pt-4 pb-20">
+                <div className="flex flex-col gap-10 pt-10 pb-20">
 
                     {/* Titre */}
                     <div className="">
-                        <p className="text-2xl text-sage-green font-bold mb-2">
+                        <p className="text-2xl text-sage-green font-bold mb-6">
                             Web Developer Junior
                         </p>
 
-                        <h1 className="text-7xl lg:text-8xl font-poppins font-bold text-white mb-6">
-                            Nabila Tamajnit
+                        <h1 className="text-7xl lg:text-7xl font-poppins font-medium text-white mb-6">
+                            Hello, moi c'est <span className="font-bold text-sage-green text-8xl" >Nabila</span> 
                         </h1>
 
                         <p className="text-2xl text-gray-400 mt-4">
-                            Le développement web n’est plus un rêve lointain, c’est un métier que je façonne chaque jour avec <span className="text-sage-green font-medium">détermination</span>.
-                            J’y exprime ma logique, ma créativité et mon sens du détail.
+                            Curieuse, déterminée et passionnée par l’univers du web, je prends un réel plaisir à donner vie à des idées à travers le code.
                         </p>
 
                     </div>
@@ -31,13 +30,18 @@ export const Hero = () => {
 
                         <a
                             href="#"
-                            className="inline-block px-8 py-4 bg-sage-green rounded text-white font-medium hover:bg-sage-dark transition-colors"
+                            target="_blanc"
+                            rel="noopener noreferrer"
+                            className="inline-block px-8 py-4 bg-sage-green rounded text-white font-medium hover:bg-sage-white
+                            hover:text-black transition-colors"
                         >
                             Mon LinkThree
                         </a>
 
                         <a
-                            href="#"
+                            href="/cv/CV_NabilaTamajnit.pdf"
+                            target="_blanc"
+                            rel="noopener noreferrer"
                             className="inline-block px-8 py-4 border-2 border-sage-green rounded text-white font-medium hover:bg-sage-white hover:border-sage-white hover:text-black transition-colors"
                         >
                             Télécharger mon CV
@@ -48,7 +52,7 @@ export const Hero = () => {
 
                 </div>
 
-                <div className="hidden lg:block h-full overflow-hidden bg-[url(/assets/profile_picture/avatar_profil.png)] bg-top bg-no-repeat bg-cover hover:opacity-90 transition-opacity duration-300" >
+                <div className="hidden lg:block h-full overflow-hidden bg-[url(/assets/profile_picture/profil_hero_small.png)] bg-top bg-no-repeat bg-cover hover:opacity-90 transition-opacity duration-300" >
                     {/* <img src="/assets/profil_picture/profil-provisoire.jpeg"
                         alt="Nabila Tamajnit"
                         className="w-full h-auto object-cover" /> */}
