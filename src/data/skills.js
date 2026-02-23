@@ -33,6 +33,14 @@ export const skills = [
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg'
   },
   {
+    name: 'Draw.io',
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Diagrams.net_Logo.svg'
+  },
+  {
+    name: 'Insomnia',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-original.svg'
+  },
+  {
     name: 'Git',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg'
   },
