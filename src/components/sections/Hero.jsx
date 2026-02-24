@@ -52,7 +52,7 @@ export const Hero = () => {
 
                 </div>
 
-                <div className="hidden lg:block h-full overflow-hidden bg-[url(/assets/profile_picture/profil_hero_small.png)] bg-top bg-no-repeat bg-cover hover:opacity-90 transition-opacity duration-300" >
+                <div className="hidden lg:block h-full overflow-hidden bg-[url(/assets/profile_picture/profil_hero_small_3m.webp)] bg-top bg-no-repeat bg-cover hover:opacity-90 transition-opacity duration-300" >
                     {/* <img src="/assets/profil_picture/profil-provisoire.jpeg"
                         alt="Nabila Tamajnit"
                         className="w-full h-auto object-cover" /> */}
