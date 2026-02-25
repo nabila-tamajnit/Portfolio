@@ -7,6 +7,7 @@ export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
+        { name: 'Bienvenue', href:'#welcome'},
         { name: 'À propos', href: '#about' },
         { name: 'Compétences', href: '#skills' },
         { name: 'Projets', href: '#projects' }
@@ -19,7 +20,7 @@ export const Navbar = () => {
 
     return (
         <nav className="fixed top-0 w-full z-50 bg-dark-bg/95">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 py-5 flex justify-between items-center ">
+            <div className="max-w-7xl 2xl:max-w-400 mx-auto  px-6 lg:px-12 py-5 flex justify-between items-center ">
 
                 {/* ------ LOGO ----- */}
                 <a href="#" className="flex items-center">
