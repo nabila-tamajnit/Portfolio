@@ -3,9 +3,9 @@ import { SocialLinks } from "../common/SocialLinks";
 export const Hero = () => {
 
     return (
-        <section className="min-h-screen bg-dark-bg flex pt-22 px-6 lg:px-12 item" >
+        <section className="min-h-screen w-full bg-dark-bg flex pt-22 px-6 item" >
 
-            <div className="max-w-7xl xl:max-w-8xl mx-auto grid lg:grid-cols-2 gap-12 w-full items-center">
+            <div className="max-w-7xl 2xl:max-w-400 mx-auto grid lg:grid-cols-2 gap-12 w-full items-center">
 
                 <div className="flex flex-col gap-10 pt-10 pb-20">
 
@@ -16,7 +16,7 @@ export const Hero = () => {
                         </p>
 
                         <h1 className="text-7xl lg:text-7xl font-poppins font-medium text-white mb-6">
-                            Hello, moi c'est <span className="font-bold text-sage-green text-8xl" >Nabila</span> 
+                            Bonjour, je suis <strong className=" text-sage-green text-8xl">Nabila</strong> 
                         </h1>
 
                         <p className="text-2xl text-gray-400 mt-4">
@@ -52,7 +52,7 @@ export const Hero = () => {
 
                 </div>
 
-                <div className="hidden lg:block h-full overflow-hidden bg-[url(/assets/profile_picture/profil_hero_small_3m.webp)] bg-top bg-no-repeat bg-cover hover:opacity-90 transition-opacity duration-300" >
+                <div className="hidden lg:block h-full overflow-hidden bg-[url(/assets/profile_picture/profil_hero_small_1.webp)] bg-top bg-no-repeat bg-cover hover:opacity-90 transition-opacity duration-300" >
                     {/* <img src="/assets/profil_picture/profil-provisoire.jpeg"
                         alt="Nabila Tamajnit"
                         className="w-full h-auto object-cover" /> */}

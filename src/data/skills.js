@@ -26,7 +26,7 @@ export const skills = [
   {
     name: 'Express',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
-    invert: true // Inverser la couleur
+    invert: true
   },
   {
     name: 'MongoDB',
