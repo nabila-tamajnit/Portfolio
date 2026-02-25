@@ -3,7 +3,7 @@ import { SocialLinks } from "../common/SocialLinks";
 export const Hero = () => {
 
     return (
-        <section className="min-h-screen w-full bg-dark-bg flex pt-22 px-6 item" >
+        <section id="welcome" className="min-h-screen w-full bg-dark-bg flex pt-22 px-6 item" >
 
             <div className="max-w-7xl 2xl:max-w-400 mx-auto grid lg:grid-cols-2 gap-12 w-full items-center">
 

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Logo } from "../common/Logo";
+import { NavHashLink } from "react-router-hash-link";
 
 
 export const Navbar = () => {
@@ -7,7 +8,7 @@ export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
-        { name: 'Bienvenue', href:'#welcome'},
+        { name: 'Bienvenue', href: '#welcome' },
         { name: 'À propos', href: '#about' },
         { name: 'Compétences', href: '#skills' },
         { name: 'Projets', href: '#projects' }
@@ -16,7 +17,7 @@ export const Navbar = () => {
     const toggleMenu = () => {
         setIsOpen(prev => !prev);
     };
-        
+
 
     return (
         <nav className="fixed top-0 w-full z-50 bg-dark-bg/95">
@@ -31,12 +32,12 @@ export const Navbar = () => {
                 <ul className="hidden md:flex gap-8">
                     {navLinks.map((link) => (
                         <li key={link} >
-                            <a
-                                href={link.href}
+                            <NavHashLink
+                                smooth to={link.href}
                                 className="font-medium text-gray-300 hover:text-sage-green transition-colors"
                             >
                                 {link.name}
-                            </a>
+                            </NavHashLink>
                         </li>
                     ))}
 
@@ -77,19 +78,23 @@ export const Navbar = () => {
                     <ul className="flex flex-col items-center gap-8" >
                         {navLinks.map((link) => (
                             <li key={link} >
-                                <a
-                                    href={link.href}
+                                <NavHashLink
+                                    smooth to={link.href}
+                                    activeClassName="selected"
+                                    activeStyle={{ color: 'red' }}
                                     onClick={toggleMenu}
                                     className="text-xl font-medium text-gray-300 hover:text-sage-green transition-colors"
                                 >
                                     {link.name}
-                                </a>
+                                </NavHashLink>
                             </li>
                         ))}
 
                         <li>
                             <a
                                 href="#contact"
+                                activeClassName="selected"
+                                activeStyle={{ color: 'red' }}
                                 className=" text-xl px-6 py-2.5 bg-sage-green text-white font-medium rounded hover:bg-sage-dark transition-colors"
                             >
                                 Contact

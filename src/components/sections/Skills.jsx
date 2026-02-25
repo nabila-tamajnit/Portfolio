@@ -3,7 +3,7 @@ import { skills } from "../../data/skills"
 export const Skills = () => {
 
     return (
-        <section className="py-32 px-6 lg:px-12 bg-dark-bg">
+        <section id="skills" className="py-32 px-6 lg:px-12 bg-dark-bg">
 
             <div className="max-w-7xl mx-auto " >
                 <div className="text-center mb-20">
