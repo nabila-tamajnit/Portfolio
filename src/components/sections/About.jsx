@@ -101,7 +101,7 @@ export const About = () => {
                                             <div className="w-4 h-4 rounded-full bg-sage-green border-3 border-dark-code shrink-0 z-10 mt-1"></div>
                                             {/* Ligne */}
                                             {index < progress.length - 1 && (
-                                                <div className="w-[2px] flex-1 min-h-[3rem] bg-gradient-to-b from-sage-green to-gray-200 mb-1"></div>
+                                                <div className="w-[2px] flex-1 min-h-[2.5rem] bg-gradient-to-b from-sage-green to-gray-100 mb-1"></div>
                                             )}
                                         </div>
 
