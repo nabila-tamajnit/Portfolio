@@ -44,12 +44,14 @@ export const Navbar = () => {
                     <li>
                         <a
                             href="#contact"
-                            className="px-6 py-2.5 rounded bg-sage-green text-white font-medium hover:bg-sage-dark transition-colors"
+                            className="px-6 py-2.5 rounded bg-sage-green font-medium hover:bg-sage-white transition-colors"
                         >
                             Contact
                         </a>
                     </li>
                 </ul>
+
+                
 
                 {/* ----- BOUTON BURGER ----- */}
                 <button
