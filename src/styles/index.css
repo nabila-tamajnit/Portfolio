@@ -12,7 +12,7 @@
   --color-sage-dark: #5a7a6d;
   --color-sage-light: #86B29F;
   --color-sage-white: #EFF4F2;
-  
+
   --color-dark-card: #141414;
 
   --color-gray-font: #5e6472;
@@ -26,12 +26,45 @@
   --color-green-const: #98C379;
 
   --color-blue-bg: #060E11;
-  
+
+  /* !!! Nouvelles Palettes !!! */
+  --color-bg-main: #080C18;
+  --color-bg-alt: #0D1323;
+  --color-card-main: #10182A;
+
+  --color-purple-accent: #5F35D5;
+  --color-purple-hover: #7C5CFF;
+  --color-purle-border: rgba(95, 53, 213, 0.35);
+  --color-purple-glow: rgba(95, 53, 213, 0.6);
+
+  --color-blue-accent: #4C6FFF;
+
+  --color-title: #E8F0FF;
+  --color-texte-main: #94A3B8;
+  --color-texte-sec: #64748B;
+
+  --color-skills-border: rgba(95, 53, 213, 0.25);
+  --color-skills-hover : #5F35D5;
+  --shadow-skills-glow: 0 0 15px rgba(95, 53, 213, 0.4);
+
+  --color-strenght-bg: #0F172A;
+  --color-strenght-border: rgba(76, 111, 255, 0.25);
+  --color-strenght-hover: #4C6FFF;
+
+  --color-code-bg: #0B1220;
+  --color-code-border: rgba(95, 53, 213, 0.2);
+  --color-code-gradient: linear-gradient(180deg, rgba(95, 53, 213, 0.05), transparent);
+
+  --color-corner-purple: radial-gradient(circle at top right, rgba(95, 53, 213, 0.25), transparent 60%);
+  --color-corner-blue: radial-gradient(circle at bottom left, rgba(76, 111, 255, 0.18), transparent 60%)
+
+
   /* Style fonts */
   --font-family-poppins: 'Poppins', sans-serif;
   --font-family-inter: 'Inter', sans-serif;
   --font-family-fira: "Fira Code", monospace;
   --font-family-link: "DM Mono", monospace;
+  --font-family-space: "Space Grotesk", sans-serif;
 }
 
 /* ---------- Styles de base ------------ */
@@ -39,8 +72,13 @@ body {
   font-family: var(--font-family-inter);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-poppins);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-space);
 }
 
 /* Scrollbar */
