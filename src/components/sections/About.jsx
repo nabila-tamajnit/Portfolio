@@ -18,8 +18,15 @@ export const About = () => {
     ]
 
     return (
-        <section id="about" className="w-full py-32 px-6 lg:px-12 bg-[#080C18] bg-[radial-gradient(ellipse_at_top_right,#4A9EFF_0%,transparent_30%),radial-gradient(ellipse_at_bottom_left,#7C5CBF_0%,transparent_20%)]" >
-            <div className="max-w-7xl mx-auto">
+        <section id="about" className="w-full py-32 px-6 lg:px-12 bg-bg-main relative bg-[radial-gradient(circle_at_top_right,#4C6FFF_0%,transparent_25%),radial-gradient(circle_at_top_right,#5F35D5_0%,transparent_15%)]"  >
+
+            {/* <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(76,111,255,0.18),transparent_30%)] pointer-events-none"></div>
+
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(95,53,213,0.25),transparent_30%)] pointer-events-none"></div> */}
+
+            <div className="relative z-10 max-w-7xl mx-auto">
+
+
                 <div className="grid lg:grid-cols-2 gap-16 items-start">
 
                     {/* <<<<< Gauche */}
@@ -31,13 +38,13 @@ export const About = () => {
 
                                 {/* <div className="w-2 h-2 bg-[#833ecd] rounded-full"></div> */}
                                 {/* <h4 className="text-sm text-sage-green font-medium tracking-widest">01. À PROPOS</h4> */}
-                                <div className="h-0.5 bg-gradient-to-r from-[#833ecd] to-[#080C18]/0 flex-1" ></div>
+                                <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#080C18]/0 flex-1" ></div>
 
                             </div>
 
                             <h2 className="text-5xl lg:text-6xl font-semibold text-[#E8F0FF] mb-8 leading-tight">À propos de moi</h2>
 
-                            <div className="text-lg text-[#8899BB] space-y-5 leading-relaxed mb-12">
+                            <div className="text-lg text-[#94A3B8] space-y-5 leading-relaxed mb-15">
 
                                 <p>Coder est pour moi bien plus qu’un apprentissage : c’est un espace où je <strong>me challenge</strong> et où je <strong>me révèle</strong>.</p>
 
@@ -48,12 +55,12 @@ export const About = () => {
                             </div>
                         </div>
 
-                        
+
 
                         {/* Code */}
-                        <div className="bg-[#080C18] border border-[#261745] rounded-lg shadow-md shadow-[#3269AB]/90">
+                        <div className="bg-strenght-bg border border-strenght-border rounded-lg">
 
-                            <div className="h-10 bg-[#080c18] rounded-t-lg border-b-2 border-[#261745] flex items-center px-6">
+                            <div className="h-10 bg-[#080c18] rounded-t-lg border-b-2 border-strenght-border flex items-center px-6">
                                 <p className="text-[#E8F0FF] font-medium">about.js</p>
                             </div>
 
@@ -73,44 +80,25 @@ export const About = () => {
                                 <p className="italic mt-3 text-gray-500">// Prête à relever de nouveaux défis !</p>
                             </div>
                         </div>
-                        
-                        
+
+
                     </div>
 
 
 
                     {/* Droite >>>>>> */}
-                    <div className="lg:pt-110">
+                    <div className="lg:pt-120">
 
                         <div className="flex items-center mb-12">
 
                             {/* <div className="w-2 h-2 bg-[#833ecd] rounded-full"></div> */}
                             {/* <h4 className="text-sm text-sage-green font-medium tracking-widest">01. À PROPOS</h4> */}
-                            <div className="h-0.5 bg-gradient-to-r from-[#833ecd] to-[#080C18]/0 flex-1" ></div>
+                            <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#080C18]/0 flex-1" ></div>
 
                         </div>
-
-                        {/* About*/}
-                        <div className="mb-12">
-                            <h3 className="text-xl font-semibold mb-4 text-[#E8F0FF]">Mes atouts</h3>
-                            <div className="grid grid-cols-2 gap-4">
-                                {myStrengths.map((name) => (
-                                    <div
-                                        key={name}
-                                        className=" bg-[#080C18] p-4 rounded-lg border-[0.1px] border-[#261745] shadow-md shadow-[#3269AB]/90" >
-                                        <p className="text-center font-medium text-white">{name.name}</p>
-                                    </div>
-                                ))}
-
-                            </div>
-                        </div>
-                        
-
-                        
-
 
                         {/* Dynamique */}
-                        <div>
+                        <div className="mb-12">
                             <h3 className="text-xl text-[#E8F0FF] font-semibold mb-6">Ma dynamique</h3>
 
                             <div className="flex flex-col">
@@ -118,23 +106,52 @@ export const About = () => {
                                     <div key={item.name} className="flex items-end gap-4">
 
                                         <div className="flex flex-col items-center">
-                                            <div className="w-[2px] flex-1 min-h-[4rem] bg-gradient-to-b from-[#080C18] to-[#833ecd]"></div>
+                                            <div className="w-[2px] flex-1 min-h-[4rem] bg-gradient-to-b from-[#080C18] to-[#5F35D5]"></div>
 
                                             {/* Point */}
-                                            <div className="w-2 h-2 rounded-full bg-[#833ecd] shrink-0 z-10 "></div>
+                                            <div className="w-2 h-2 rounded-full bg-[#5F35D5] shrink-0 z-10 "></div>
                                             {/* Ligne */}
-                                            <div className="w-[2px] flex-1 min-h-[4rem] bg-gradient-to-b from-[#833ecd] to-[#080C18]"></div>
+                                            <div className="w-[2px] flex-1 min-h-[4rem] bg-gradient-to-b from-[#5F35D5] to-[#080C18]"></div>
 
                                         </div>
 
                                         <div className="h-20 flex flex-col">
-                                            <p className="font-semibold text-white">{item.name}</p>
-                                            <p className="text-sm text-[#8899BB] mt-1">{item.description}</p>
+                                            <p className="font-semibold text-[#E8F0FF]">{item.name}</p>
+                                            <p className="text-sm text-[#94A3B8] mt-1">{item.description}</p>
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         </div>
+
+                        <div className="flex items-center mb-12">
+
+                            {/* <div className="w-2 h-2 bg-[#833ecd] rounded-full"></div> */}
+                            {/* <h4 className="text-sm text-sage-green font-medium tracking-widest">01. À PROPOS</h4> */}
+                            <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#080C18]/0 flex-1" ></div>
+
+                        </div>
+
+                        {/* About*/}
+                        <div className="mb-12">
+                            <h3 className="text-xl font-semibold mb-8 text-[#E8F0FF]">Mes atouts</h3>
+                            <div className="grid grid-cols-2 gap-4">
+                                {myStrengths.map((name) => (
+                                    <div
+                                        key={name}
+                                        className=" bg-strenght-bg border border-strenght-border hover:border-strenght-hover p-4 rounded-lg" >
+                                        <p className="text-center font-medium text-white">{name.name}</p>
+                                    </div>
+                                ))}
+
+                            </div>
+                        </div>
+
+
+
+
+
+
 
                     </div>
                 </div>

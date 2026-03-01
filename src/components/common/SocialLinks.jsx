@@ -38,7 +38,7 @@ export const SocialLinks = () => {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex gap-3 text-sm font-medium text-gray-400 hover:text-sage-green transition-colors"
+          className="flex gap-3 text-sm font-medium font-family-link text-[#94A3B8] hover:text-[#5F35D5] transition-colors"
         >
           <div className="w-5 h-5">
             {link.icon}

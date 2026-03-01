@@ -26,7 +26,7 @@ export const Navbar = () => {
 
                 {/* ------ LOGO ----- */}
                 <a href="#" className="flex items-center text-white text-lg font-bold">
-                    N <span className="w-2 h-2 bg-[#833ecd] rounded-full mx-1"> </span> Dev
+                    N <span className="w-2 h-2 bg-[#5F35D5] rounded-full mx-1"> </span> Dev
                 </a>
 
                 {/* ----- LIENS ----- */}
@@ -35,7 +35,7 @@ export const Navbar = () => {
                         <li key={link} >
                             <NavHashLink
                                 smooth to={link.href}
-                                className=" text-sm uppercase font-family-link text-[#8899BB] hover:text-[#833ecd] transition-colors"
+                                className=" text-sm uppercase font-family-link text-[#8899BB] hover:text-[#5F35D5] transition-colors"
                             >
                                 {link.name}
                             </NavHashLink>

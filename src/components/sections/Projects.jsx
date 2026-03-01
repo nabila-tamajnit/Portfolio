@@ -4,17 +4,17 @@ export const Projects = () => {
 
     return (
 
-        <section id="projects" className="py-32 px-6 lg:px-12 bg-[#080C18] bg-[radial-gradient(ellipse_at_top_right,#4A9EFF_0%,transparent_25%),radial-gradient(ellipse_at_bottom_left,#7C5CBF_0%,transparent_20%)]">
+        <section id="projects" className="py-32 px-6 lg:px-12 bg-[#080C18] bg-[radial-gradient(circle_at_top_right,#3B82F6_0%,transparent_25%),radial-gradient(circle_at_bottom_left,#833ECD_0%,transparent_20%)]">
             <div className="max-w-7xl mx-auto">
 
                 <div className="text-center mb-20">
                     <div className="flex items-center justify-center mb-8">
 
-                        <div className="h-0.5 bg-gradient-to-l from-[#833ecd] to-[#833ecd]/0 w-20 lg:w-60" ></div>
+                        <div className="h-0.5 bg-gradient-to-l from-[#5F35D5] to-[#833ecd]/0 w-20 lg:w-60" ></div>
                         {/* <div className="w-2 h-2 bg-[#833ecd] rounded-full"></div> */}
                         <h4 className="text-sm text-white font-medium tracking-widest mx-2">PROJETS</h4>
                         {/* <div className="w-2 h-2 bg-[#833ecd] rounded-full"></div> */}
-                        <div className="h-0.5 bg-gradient-to-r from-[#833ecd] to-[#833ecd]/0 w-20 lg:w-60" ></div>
+                        <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#833ecd]/0 w-20 lg:w-60" ></div>
 
                     </div>
 
