@@ -24,11 +24,14 @@
   --color-blue-const: #61AFEF;
   --color-red-const: #E16C75;
   --color-green-const: #98C379;
+
+  --color-blue-bg: #060E11;
   
-  /* Couleurs fonts */
+  /* Style fonts */
   --font-family-poppins: 'Poppins', sans-serif;
   --font-family-inter: 'Inter', sans-serif;
   --font-family-fira: "Fira Code", monospace;
+  --font-family-link: "DM Mono", monospace;
 }
 
 /* ---------- Styles de base ------------ */

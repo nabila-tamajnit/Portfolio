@@ -3,24 +3,24 @@ import { skills } from "../../data/skills"
 export const Skills = () => {
 
     return (
-        <section id="skills" className="py-32 px-6 lg:px-12 bg-dark-bg">
+        <section id="skills" className="py-32 px-6 lg:px-12 bg-[#080C18] bg-[radial-gradient(ellipse_at_top_left,#7C5CBF_0%,transparent_20%),radial-gradient(ellipse_at_bottom_right,#4A9EFF_0%,transparent_25%)]">
 
             <div className="max-w-7xl mx-auto " >
                 <div className="text-center mb-20">
 
-                    <div className="flex items-center justify-center gap-2 mb-8">
+                    <div className="flex items-center justify-center mb-8">
 
-                        <div className="h-0.5 bg-gradient-to-r from-sage-green to-sage-green:0 w-20 lg:w-30" ></div>
-                        <div className="w-2 h-2 bg-sage-green rounded-full"></div>
-                        <h4 className="text-sm text-white font-medium tracking-widest">02. COMPÉTENCES</h4>
-                        <div className="w-2 h-2 bg-sage-green rounded-full"></div>
-                        <div className="h-0.5 bg-gradient-to-r from-sage-green to-sage-green/0 w-20 lg:w-30" ></div>
+                        <div className="h-0.5 bg-gradient-to-l from-[#833ecd] to-[#833ecd]/0 w-20 lg:w-60" ></div>
+                        {/* <div className="w-2 h-2 bg-[#833ecd] rounded-full"></div> */}
+                        <h4 className="text-sm text-white font-medium tracking-widest mx-2">COMPÉTENCES</h4>
+                        {/* <div className="w-2 h-2 bg-[#833ecd] rounded-full"></div> */}
+                        <div className="h-0.5 bg-gradient-to-r from-[#833ecd] to-[#833ecd]/0 w-20 lg:w-60" ></div>
 
                     </div>
 
                     <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight" >Stack technique</h2>
 
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-xl text-[#8899BB] max-w-2xl mx-auto">
                         Technologies que je maîtrise pour créer des applications web
                     </p>
                 </div>
@@ -32,7 +32,7 @@ export const Skills = () => {
                     {skills.map((skill) => (
                         <div
                             key={skill.name}
-                            className="bg-dark-card flex flex-col items-center justify-center rounded-lg p-6 w-auto border border-gray-800 transition-all duration-300 hover:border-sage-dark hover:shadow-md hover:-translate-y-0.5"
+                            className="bg-[#0f0d21] flex flex-col items-center justify-center rounded-lg p-6 w-auto border border-[#16112C] transition-all duration-300 shadow-md shadow-[#833ecd]/50 hover:border-[#833ecd] hover:shadow-lg hover:-translate-y-0.5"
                         >
                             <img
                                 src={skill.icon}

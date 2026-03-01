@@ -1,42 +1,76 @@
+import { useEffect, useRef } from "react";
 import { SocialLinks } from "../common/SocialLinks";
 import { motion } from "motion/react";
 
 export const Hero = () => {
 
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        const video = videoRef.current;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (video) observer.observe(video);
+
+        return () => {
+            if (video) observer.unobserve(video);
+        };
+    }, []);
+
     return (
-        <section id="welcome" className="min-h-screen w-full bg-dark-bg flex pt-22 px-6 item" >
+        <section id="welcome" className="relative overflow-hidden min-h-screen w-full bg-[#080C18] flex justify-start pt-10 px-6  bg-top bg-no-repeat bg-cover" >
 
-            <div className="max-w-7xl 2xl:max-w-400 mx-auto grid lg:grid-cols-2 gap-12 w-full items-center">
+            <video
+                ref={videoRef}
+                src="assets/profile_picture/video_hero2.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="mx-auto w-full max-w-7xl lg:max-w-full flex justify-center absolute inset-0 bg-black/30">
 
-                <div className="flex flex-col gap-10 pt-10 pb-20">
+
+                <div className="relative z-10 flex flex-col pt-15 lg:max-w-210 2xl:max-w-250 bg-amber-900/0">
 
                     {/* Titre */}
                     <motion.div
                         initial={{ opacity: 0, y: -300 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 2, ease: "lenear" }}>
-                        <p className="text-2xl text-sage-green font-bold mb-6">
+                        <p className="text-2xl text-[#833ecd] font-bold mb-1">
                             Web Developer Junior
                         </p>
 
                         <h1 className="text-7xl lg:text-7xl font-poppins font-medium text-white mb-6">
-                            Bonjour, je suis <strong className=" text-sage-green text-8xl">Nabila</strong>
+                            Hello, je suis <strong className=" text-[#694FA3] text-8xl">Nabila</strong>
                         </h1>
 
-                        <p className="text-2xl text-gray-400 mt-4">
+                        <p className="text-2xl text-[#8899BB]  mb-15">
                             Curieuse, déterminée et passionnée par l’univers du web, je prends un réel plaisir à donner vie à des idées à travers le code.
                         </p>
 
                     </motion.div>
 
                     {/* Boutons */}
-                    <div className="flex gap-6">
+                    <div className="flex gap-6 mb-15">
 
                         <a
                             href="#"
                             target="_blanc"
                             rel="noopener noreferrer"
-                            className="inline-block px-8 py-4 bg-sage-green rounded text-white font-medium hover:bg-sage-white
+                            className="inline-block px-8 py-4 border-2 border-[#833ecd] rounded text-white font-medium hover:bg-sage-white
                             hover:text-black transition-colors"
                         >
                             Mon LinkThree
@@ -46,7 +80,7 @@ export const Hero = () => {
                             href="/cv/CV_NabilaTamajnit.pdf"
                             target="_blanc"
                             rel="noopener noreferrer"
-                            className="inline-block px-8 py-4 border-2 border-sage-green rounded text-white font-medium hover:bg-sage-white hover:border-sage-white hover:text-black transition-colors"
+                            className="inline-block px-8 py-4 border-2 border-[#833ecd] rounded text-white font-medium hover:bg-sage-white hover:border-sage-white hover:text-black transition-colors"
                         >
                             <span className="hidden sm:inline-block" >Télécharger mon CV </span><span className="sm:hidden" >Mon CV</span>
                         </a>
@@ -56,15 +90,15 @@ export const Hero = () => {
 
                 </div>
 
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, x: 600 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 2, ease: "lenear" }}
                     className="hidden lg:block h-full overflow-hidden bg-[url(/assets/profile_picture/profil_hero_small_1.webp)] bg-top bg-no-repeat bg-cover hover:opacity-90 transition-opacity duration-300" >
                     {/* <img src="/assets/profil_picture/profil-provisoire.jpeg"
                         alt="Nabila Tamajnit"
-                        className="w-full h-auto object-cover" /> */}
-                </motion.div>
+                        className="w-full h-auto object-cover" /> 
+                </motion.div> */}
 
             </div>
 

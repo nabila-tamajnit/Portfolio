@@ -11,7 +11,8 @@ export const Navbar = () => {
         { name: 'Bienvenue', href: '#welcome' },
         { name: 'À propos', href: '#about' },
         { name: 'Compétences', href: '#skills' },
-        { name: 'Projets', href: '#projects' }
+        { name: 'Projets', href: '#projects' },
+        { name: 'Contact', href: '#contact' }
     ]
 
     const toggleMenu = () => {
@@ -20,12 +21,12 @@ export const Navbar = () => {
 
 
     return (
-        <nav className="fixed top-0 w-full z-50 bg-dark-bg/95">
-            <div className="max-w-7xl 2xl:max-w-400 mx-auto  px-6 lg:px-12 py-5 flex justify-between items-center ">
+        <nav className="fixed top-0 w-full z-50 bg-[#0B0E1B]/60">
+            <div className="max-w-7xl 2xl:max-w-400 mx-auto  px-6 lg:px-12 py-3 flex justify-between items-center ">
 
                 {/* ------ LOGO ----- */}
-                <a href="#" className="flex items-center">
-                    <Logo variant="dualWhite" className="w-12 h-12" />
+                <a href="#" className="flex items-center text-white text-lg font-bold">
+                    N <span className="w-2 h-2 bg-[#833ecd] rounded-full mx-1"> </span> Dev
                 </a>
 
                 {/* ----- LIENS ----- */}
@@ -34,22 +35,12 @@ export const Navbar = () => {
                         <li key={link} >
                             <NavHashLink
                                 smooth to={link.href}
-                                className="font-medium text-gray-300 hover:text-sage-green transition-colors"
+                                className=" text-sm uppercase font-family-link text-[#8899BB] hover:text-[#833ecd] transition-colors"
                             >
                                 {link.name}
                             </NavHashLink>
                         </li>
                     ))}
-
-
-                    <li>
-                        <a
-                            href="#contact"
-                            className="px-6 py-2.5 rounded bg-sage-green font-medium hover:bg-sage-white transition-colors"
-                        >
-                            Contact
-                        </a>
-                    </li>
                 </ul>
 
                 
@@ -85,23 +76,12 @@ export const Navbar = () => {
                                     activeClassName="selected"
                                     activeStyle={{ color: 'red' }}
                                     onClick={toggleMenu}
-                                    className="text-xl font-medium text-gray-300 hover:text-sage-green transition-colors"
+                                    className="text-xl font-medium uppercase font-family-link text-[#8899BB] hover:text-[#833ecd] transition-colors"
                                 >
                                     {link.name}
                                 </NavHashLink>
                             </li>
                         ))}
-
-                        <li>
-                            <a
-                                href="#contact"
-                                activeClassName="selected"
-                                activeStyle={{ color: 'red' }}
-                                className=" text-xl px-6 py-2.5 bg-sage-green text-white font-medium rounded hover:bg-sage-dark transition-colors"
-                            >
-                                Contact
-                            </a>
-                        </li>
                     </ul>
                 </div>
             )}
