@@ -12,7 +12,7 @@ export const skills = [
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg'
   },
   {
-    name: 'Tailwind CSS',
+    name: 'Tailwind',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg'
   },
   {
@@ -58,5 +58,26 @@ export const skills = [
     name: 'Insomnia',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-original.svg'
   },
- 
+  {
+    name: 'WordPress',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg',
+    invert: true
+  },
+  {
+    name: 'Unity',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg',
+    invert: true
+  },
+  {
+    name: 'Photoshop',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg'
+  },
+  {
+    name: 'Illustrator',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-original.svg'
+  }
+  // {
+  //   name: 'Scrum',
+  //   icon: 'https://static.cdnlogo.com/logos/s/76/scrum.svg'
+  // }
 ];
