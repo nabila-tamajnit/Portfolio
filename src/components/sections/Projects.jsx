@@ -4,23 +4,21 @@ export const Projects = () => {
 
     return (
 
-        <section id="projects" className="py-32 px-6 lg:px-12 bg-[#080C18] bg-[radial-gradient(circle_at_top_right,#3B82F6_0%,transparent_25%),radial-gradient(circle_at_bottom_left,#833ECD_0%,transparent_20%)]">
+        <section id="projects" className="py-32 px-6 lg:px-12 bg-bg-main bg-[radial-gradient(circle_at_right,#3B82F6_0%,transparent_25%),radial-gradient(circle_at_bottom_left,#5F35D5_0%,transparent_20%)]">
             <div className="max-w-7xl mx-auto">
 
-                <div className="text-center mb-20">
+                <div className="text-center mb-20 ">
                     <div className="flex items-center justify-center mb-8">
 
-                        <div className="h-0.5 bg-gradient-to-l from-[#5F35D5] to-[#833ecd]/0 w-20 lg:w-60" ></div>
-                        {/* <div className="w-2 h-2 bg-[#833ecd] rounded-full"></div> */}
+                        <div className="h-0.5 bg-gradient-to-l from-[#5F35D5] to-[#5F35D5/0 w-20 lg:w-60" ></div>
                         <h4 className="text-sm text-white font-medium tracking-widest mx-2">PROJETS</h4>
-                        {/* <div className="w-2 h-2 bg-[#833ecd] rounded-full"></div> */}
-                        <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#833ecd]/0 w-20 lg:w-60" ></div>
+                        <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#5F35D5]/0 w-20 lg:w-60" ></div>
 
                     </div>
 
-                    <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight" >Mes réalisations</h2>
+                    <h2 className="text-5xl lg:text-6xl font-bold text-title mb-6 leading-tight" >Mes réalisations</h2>
 
-                    <p className="text-xl text-[#8899BB] max-w-2xl mx-auto">
+                    <p className="text-xl text-text-main max-w-2xl mx-auto">
                         Projets sur lesquels j'ai travaillé durant ma formation
                     </p>
                 </div>
@@ -29,37 +27,38 @@ export const Projects = () => {
                     {projects.map((project, index) => (
                         <div
                             key={project.id}
-                            className={`group grid lg:grid-cols-2 items-center gap-12 bg-[#0f0d21]/0 border-[#16112C] rounded-lg overflow-hidden shadow-md shadow-[#3269AB]/90 hover:shadow-xl transition-all p-8 ${index % 2 === 1 ? 'lg:flex-row-revers' : ''}`}
+                            className={`group grid lg:grid-cols-2 items-center gap-12 bg-card-main border border-skills-border rounded-lg overflow-hidden hover:shadow-skills-glow hover:-translate-y-0.5 transition-all p-8 ${index % 2 === 1 ? 'lg:flex-row-revers' : ''}`}
                         >
 
-                            <div className={index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}>
+                            <div className={ index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}>
 
                                 <div className="flex items-center gap-2 mb-6">
 
                                     {/* <div className="w-2 h-2 bg-sage-green rounded-full"></div> */}
-                                    <h4 className="text-4xl text-[#833ecd] font-bold tracking-widest">
+                                    <h4 className="text-4xl text-purple-accent font-bold tracking-widest">
                                         {project.number}
                                     </h4>
-                                    <div className="h-0.5 bg-gradient-to-r from-[#833ecd] to-[#833ecd]/0 flex-1"></div>
+                                    <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#5F35D5]/0 flex-1"></div>
 
                                 </div>
 
                                 <div className="text-[#E8F0FF]">
-                                    <h3 className="text-3xl font-semibold mb-4 " >
+                                    <h3 className=" text-title text-3xl font-semibold mb-4 " >
                                         {project.title}
                                     </h3>
-                                    <p className="text-lg text-[#8899BB] mb-6 " >
+                                    <p className="text-lg text-text-main mb-6 " >
                                         {project.description}
                                     </p>
 
                                     <div className="flex flex-wrap gap-5 mb-6">
                                         {project.tags.map((tag) => (
-                                            <span
+                                            <img
                                                 key={tag}
-                                                className="text-lg font-semibold text-gray-200"
-                                            >
-                                                {tag}
-                                            </span>
+                                                alt={tag.name}
+                                                src={tag.icon}
+                                                className="w-6 h-6 mb-3"
+                                            />
+                                            
                                         ))}
                                     </div>
 
@@ -68,7 +67,7 @@ export const Projects = () => {
                                             href={project.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="bg-[#833ecd] hover:bg-sage-white text-dark-bg text-sm font-semibold py-1.5 px-3.5 rounded"
+                                            className="bg-purple-accent hover:bg-purple-hover text-title text-sm font-semibold py-1.5 px-3.5 rounded"
                                         >
                                             Code
                                         </a>
@@ -76,7 +75,7 @@ export const Projects = () => {
                                         <a href={project.demo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="bg-[#833ecd] hover:bg-sage-white text-dark-bg text-sm font-semibold py-1.5 px-3.5 rounded"
+                                            className="bg-purple-accent hover:bg-purple-hover text-title text-sm font-semibold py-1.5 px-3.5 rounded"
 
                                         >
                                             Demo
