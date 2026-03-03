@@ -40,8 +40,8 @@
   --color-blue-accent: #4C6FFF;
 
   --color-title: #E8F0FF;
-  --color-texte-main: #94A3B8;
-  --color-texte-sec: #64748B;
+  --color-text-main: #94A3B8;
+  --color-text-sec: #64748B;
 
   --color-skills-border: rgba(95, 53, 213, 0.25);
   --color-skills-hover : #5F35D5;
@@ -91,7 +91,7 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-sage-green);
+  background: var(--color-card-main);
   border-radius: 4px;
 }
 
