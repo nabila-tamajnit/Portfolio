@@ -21,7 +21,7 @@ export const Skills = () => {
                     <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight" >Stack technique</h2>
 
                     <p className="text-xl text-[#8899BB] max-w-2xl mx-auto">
-                        Technologies que je maîtrise pour créer des applications web
+                        Technologies que j'utilise pour créer des applications web
                     </p>
                 </div>
 
