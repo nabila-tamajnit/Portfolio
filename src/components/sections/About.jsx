@@ -91,9 +91,9 @@ export const About = () => {
                         </div>
 
                         {/* Ligne dégradée */}
-                        <div className="flex items-center mb-12">
+                        {/* <div className="flex items-center mb-12">
                             <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#5F35D5]/0 flex-1" ></div>
-                        </div>
+                        </div> */}
 
                         {/* About*/}
                         {/* <div className="mb-12">
