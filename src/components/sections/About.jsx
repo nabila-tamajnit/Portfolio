@@ -139,7 +139,7 @@ export const About = () => {
                         </div>
 
                         {/* About*/}
-                        <div className="mb-12">
+                        <div className="">
 
                             <h3 className="text-xl font-semibold mb-8 text-title">Mes atouts</h3>
                             <div className="grid grid-cols-2 gap-4">

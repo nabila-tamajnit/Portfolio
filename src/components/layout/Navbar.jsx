@@ -22,11 +22,11 @@ export const Navbar = () => {
 
     return (
         <nav className="fixed top-0 w-full z-50 bg-[#0B0E1B]/60">
-            <div className="max-w-7xl 2xl:max-w-400 mx-auto  px-6 lg:px-12 py-3 flex justify-between items-center ">
+            <div className="max-w-7xl 2xl:max-w-400 mx-auto  px-6 lg:px-12 py-1.5 flex justify-between items-center ">
 
                 {/* ------ LOGO ----- */}
-                <a href="#" className="flex items-center text-white text-lg font-bold">
-                    N <span className="w-2 h-2 bg-[#5F35D5] rounded-full mx-1"> </span> Dev
+                <a href="#welcome" className="flex items-end text-white text-lg font-bold">
+                    <img src="/assets/logos/Logo.svg" height="30" width="30" alt="Logo Nabila" className=" lg:h-9 lg:w-9" />
                 </a>
 
                 {/* ----- LIENS ----- */}

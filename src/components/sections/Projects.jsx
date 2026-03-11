@@ -1,3 +1,4 @@
+import { a } from "motion/react-client";
 import { projects } from "../../data/projects"
 
 export const Projects = () => {
@@ -30,7 +31,7 @@ export const Projects = () => {
                             className={`group grid lg:grid-cols-2 items-center gap-12 bg-card-main border border-skills-border rounded-lg overflow-hidden hover:shadow-skills-glow hover:-translate-y-0.5 transition-all p-8 ${index % 2 === 1 ? 'lg:flex-row-revers' : ''}`}
                         >
 
-                            <div className={ index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}>
+                            <div className={index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}>
 
                                 <div className="flex items-center gap-2 mb-6">
 
@@ -51,19 +52,33 @@ export const Projects = () => {
                                     </p>
 
                                     <div className="flex flex-wrap gap-5 mb-6">
-                                        {project.tags.map((tag) => (
+                                        {project.tags?.map((tag) => (
                                             <img
                                                 key={tag}
                                                 alt={tag.name}
                                                 src={tag.icon}
                                                 className="w-6 h-6 mb-3"
                                             />
-                                            
+
                                         ))}
                                     </div>
 
-                                    <div className="flex gap-4">
-                                        <a
+                                    <div className="flex gap-5">
+                                        {project.links?.map((link) => (
+
+                                            <a
+                                                href={link.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <img
+                                                    src={link.icon}
+                                                    alt={link.name}
+                                                    className="w-12 h-12 hover:opacity-70"
+                                                />
+                                            </a>
+                                        ))}
+                                        {/* <a
                                             href={project.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -79,7 +94,7 @@ export const Projects = () => {
 
                                         >
                                             Demo
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
 
@@ -90,7 +105,8 @@ export const Projects = () => {
                                 <div className="relative aspect-video overflow-hidden border border-sage-green rounded bg-gray-200">
                                     <video
                                         src={project.video}
-                                        className="w-full h-full object-cover"
+                                        poster={project.image}
+                                        className="hidden md:block w-full h-full object-cover"
                                         loop
                                         muted
                                         playsInline
@@ -99,6 +115,10 @@ export const Projects = () => {
                                             e.target.pause();
                                             e.target.currentTime = 0;
                                         }}
+                                    />
+                                    <img
+                                        src={project.image}
+                                        className="block md:hidden w-full h-full object-cover"
                                     />
                                 </div>
                             </div>

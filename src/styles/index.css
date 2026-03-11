@@ -2,32 +2,6 @@
 
 @theme {
   /* ---------------- Couleurs ---------------- */
-  /* Couleurs bg */
-  --color-dark-bg: #0B0D10;
-  --color-green-bg: #1e1e24;
-  --color-white-bg: #f8f9fa;
-
-  /* Couleurs sauge */
-  --color-sage-green: #6B9080;
-  --color-sage-dark: #5a7a6d;
-  --color-sage-light: #86B29F;
-  --color-sage-white: #EFF4F2;
-
-  --color-dark-card: #141414;
-
-  --color-gray-font: #5e6472;
-
-  /* Couleurs code */
-  --color-dark-snippet: #141619;
-  --color-dark-code: #1a1d24;
-  --color-purple-const: #C678DC;
-  --color-blue-const: #61AFEF;
-  --color-red-const: #E16C75;
-  --color-green-const: #98C379;
-
-  --color-blue-bg: #060E11;
-
-  /* !!! Nouvelles Palettes !!! */
   --color-bg-main: #080C18;
   --color-bg-alt: #0D1323;
   --color-card-main: #10182A;
@@ -91,10 +65,10 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-card-main);
+  background: var(--color-purple-accent);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-sage-dark);
+  background: var(--color-purple-hover);
 }
