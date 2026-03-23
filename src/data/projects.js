@@ -1,4 +1,4 @@
-import { link } from "motion/react-client"
+
 
 export const projects = [
   {
@@ -29,69 +29,69 @@ export const projects = [
     links: [
       {
         name: 'github',
-        icon: '/assets/projects/icons/github.svg',
+        icon: '/assets/projects/icons/github1.svg',
         link: 'https://github.com/nabila-tamajnit/DevPath_Junior.git'
       },
       {
         name: 'Demo',
-        icon: '/assets/projects/icons/net.svg',
+        icon: '/assets/projects/icons/net1.svg',
         link: '#'
       },
-      {
-        name: 'Figma',
-        icon: '/assets/projects/icons/figma.svg',
-        link: '#'
-      }
+      // {
+      //   name: 'Figma',
+      //   icon: '/assets/projects/icons/figma1.svg',
+      //   link: '#'
+      // }
     ]
   },
-  {
-    id: 2,
-    number: '02',
-    title: 'DevPath Junior',
-    description: "Une plateforme interactive dédiée aux développeurs juniors préparant des entretiens techniques. Elle réunit des jeux d’entraînement, un simulateur d’entretien, une to-do list synchronisée et un générateur de Markdown, dans une interface responsive avec thème sombre et clair.",
-    image: '/assets/projects/portfolio.jpg',
-    tags: ['React', 'Tailwind CSS', 'Vite'],
-    links: [
-      {
-        name: 'github',
-        icon: '/assets/projects/icons/github.svg',
-        link: 'https://github.com/nabila-tamajnit/DevPath_Junior.git'
-      },
-      {
-        name: 'Demo',
-        icon: '/assets/projects/icons/net.svg',
-        link: '#'
-      },
-      {
-        name: 'Figma',
-        icon: '/assets/projects/icons/figma.svg',
-        link: '#'
-      }
-    ]
-  },
-  {
-    id: 3,
-    number: '03',
-    title: 'DevPath Junior',
-    description: "Une plateforme interactive dédiée aux développeurs juniors préparant des entretiens techniques. Elle réunit des jeux d’entraînement, un simulateur d’entretien, une to-do list synchronisée et un générateur de Markdown, dans une interface responsive avec thème sombre et clair.",
-    image: '/assets/projects/placeholder.jpg',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    links: [
-      {
-        name: 'github',
-        icon: '/assets/projects/icons/github.svg',
-        link: 'https://github.com/nabila-tamajnit/DevPath_Junior.git'
-      },
-      {
-        name: 'Demo',
-        icon: '/assets/projects/icons/net.svg',
-        link: '#'
-      },
-      {
-        name: 'Figma',
-        icon: '/assets/projects/icons/figma.svg',
-        link: '#'
-      }
-    ]
-  }
+  // {
+  //   id: 2,
+  //   number: '02',
+  //   title: 'DevPath Junior',
+  //   description: "Une plateforme interactive dédiée aux développeurs juniors préparant des entretiens techniques. Elle réunit des jeux d’entraînement, un simulateur d’entretien, une to-do list synchronisée et un générateur de Markdown, dans une interface responsive avec thème sombre et clair.",
+  //   image: '/assets/projects/portfolio.jpg',
+  //   tags: ['React', 'Tailwind CSS', 'Vite'],
+  //   links: [
+  //     {
+  //       name: 'github',
+  //       icon: '/assets/projects/icons/github1.svg',
+  //       link: 'https://github.com/nabila-tamajnit/DevPath_Junior.git'
+  //     },
+  //     {
+  //       name: 'Demo',
+  //       icon: '/assets/projects/icons/net1.svg',
+  //       link: '#'
+  //     },
+  //     // {
+  //     //   name: 'Figma',
+  //     //   icon: '/assets/projects/icons/figma1.svg',
+  //     //   link: '#'
+  //     // }
+  //   ]
+  // },
+  // {
+  //   id: 3,
+  //   number: '03',
+  //   title: 'DevPath Junior',
+  //   description: "Une plateforme interactive dédiée aux développeurs juniors préparant des entretiens techniques. Elle réunit des jeux d’entraînement, un simulateur d’entretien, une to-do list synchronisée et un générateur de Markdown, dans une interface responsive avec thème sombre et clair.",
+  //   image: '/assets/projects/placeholder.jpg',
+  //   tags: ['React', 'Node.js', 'MongoDB'],
+  //   links: [
+  //     {
+  //       name: 'github',
+  //       icon: '/assets/projects/icons/github1.svg',
+  //       link: 'https://github.com/nabila-tamajnit/DevPath_Junior.git'
+  //     },
+  //     {
+  //       name: 'Demo',
+  //       icon: '/assets/projects/icons/net1.svg',
+  //       link: '#'
+  //     },
+  //     // {
+  //     //   name: 'Figma',
+  //     //   icon: '/assets/projects/icons/figma1.svg',
+  //     //   link: '#'
+  //     // }
+  //   ]
+  // }
 ];
