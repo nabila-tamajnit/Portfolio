@@ -1,52 +1,76 @@
+import { motion } from "framer-motion"
 import { skills } from "../../data/skills"
+import { SkillsGrid } from "./skills/SkillsGrid"
+
 
 export const Skills = () => {
+  return (
+    <section 
+      id="skills" 
+      className="py-16 sm:py-24 px-6 lg:px-12 bg-bg-main bg-[radial-gradient(ellipse_at_center,#5F35D5_10%,transparent_20%),radial-gradient(ellipse_at_center,#4C6FFF_0%,transparent_45%)]"
+    >
+      <div className="max-w-7xl mx-auto">
 
-    return (
-        <section id="skills" className=" py-15 sm:py-25 px-6 lg:px-12 bg-bg-main bg-[radial-gradient(ellipse_at_center,#5F35D5_10%,transparent_20%),radial-gradient(ellipse_at_center,#4C6FFF_0%,transparent_45%)]">
+        {/* ========== TITRE ========== */}
+        <div className="text-center mb-20">
 
-            <div className="max-w-7xl mx-auto " >
+          {/* ----- Petit titre ----- */}
+          <div className="flex items-center justify-center mb-8 overflow-hidden">
+            
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="h-0.5 bg-gradient-to-l from-purple-accent to-purple-accent/0 w-20 lg:w-60 origin-right"
+            />
 
-                {/* Titre */}
-                <div className="text-center mb-20">
+            <motion.h4
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-sm text-white font-medium tracking-widest mx-2"
+            >
+              COMPÉTENCES
+            </motion.h4>
 
-                    <div className="flex items-center justify-center mb-8">
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="h-0.5 bg-gradient-to-r from-purple-accent to-purple-accent/0 w-20 lg:w-60 origin-left"
+            />
+          </div>
 
-                        <div className="h-0.5 bg-gradient-to-l from-[#5F35D5] to-[#5F35D5]/0 w-20 lg:w-60" ></div>
-                        <h4 className="text-sm text-white font-medium tracking-widest mx-2">COMPÉTENCES</h4>
-                        <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#5F35D5]/0 w-20 lg:w-60" ></div>
+          {/* ----- Titre principal ----- */}
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-5xl lg:text-6xl font-bold text-title mb-6 leading-tight"
+          >
+            Stack technique
+          </motion.h2>
 
-                    </div>
+          {/* ----- Sous titre ----- */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="text-xl text-text-main max-w-2xl mx-auto"
+          >
+            Technologies que j'utilise pour créer des applications web
+          </motion.p>
+        </div>
 
-                    <h2 className="text-5xl lg:text-6xl font-bold text-title mb-6 leading-tight" >Stack technique</h2>
+        {/* ========== GRID SKILLS ========== */}
+        <SkillsGrid skills={skills} />
 
-                    <p className="text-xl text-text-main max-w-2xl mx-auto">
-                        Technologies que j'utilise pour créer des applications web
-                    </p>
-                </div>
-
-                {/* Skills */}
-                <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6" >
-
-                    {skills.map((skill) => (
-                        <div
-                            key={skill.name}
-                            className="bg-card-main flex flex-col items-center justify-center rounded-lg p-3 lg:p-6 w-auto border border-skills-border hover:shadow-skills-glow hover:-translate-y-0.5 transition-all duration-300 "
-                        >
-                            <img
-                                src={skill.icon}
-                                alt={skill.name}
-                                className={` w-8 h-8 lg:w-16 lg:h-16 mb-3 ${skill.invert ? "invert" : ""} `} />
-
-                            <p className="text-title text-center text-sm lg:text-lg">{skill.name}</p>
-
-                        </div>
-                    ))}
-
-                </div>
-
-            </div>
-
-        </section>
-    )
+      </div>
+    </section>
+  )
 }

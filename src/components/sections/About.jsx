@@ -1,5 +1,7 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
+import { TimelineItem } from "./about/TimelineItem"
+import { CodeTypingEffect } from "./about/CodeTypingEffect"
 
 export const About = () => {
     const myStrengths = [
@@ -23,11 +25,11 @@ export const About = () => {
     const lineRef2 = useRef(null)
     const codeRef = useRef(null)
 
-    const isLineVisible1 = useInView(lineRef1, { once: true, amount: 0.5 })
-    const isTitleVisible = useInView(titleRef, { once: true, amount: 0.5 })
-    const isTextVisible = useInView(textRef, { once: true, amount: 0.3 })
-    const isLineVisible2 = useInView(lineRef2, { once: true, amount: 0.5 })
-    const isCodeVisible = useInView(codeRef, { once: true, amount: 0.3 })
+    const isLineVisible1 = useInView(lineRef1, { once: false, amount: 0.5 })
+    const isTitleVisible = useInView(titleRef, { once: false, amount: 0.5 })
+    const isTextVisible = useInView(textRef, { once: false, amount: 0.3 })
+    const isLineVisible2 = useInView(lineRef2, { once: false, amount: 0.5 })
+    const isCodeVisible = useInView(codeRef, { once: false, amount: 0.3 })
 
     return (
         <section
@@ -104,7 +106,7 @@ export const About = () => {
                         <motion.h3
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.5 }}
+                            viewport={{ once: false, amount: 0.5 }}
                             transition={{ duration: 0.6 }}
                             className="text-xl text-title font-semibold mb-6"
                         >
@@ -157,7 +159,7 @@ export const About = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.5 }}
+                            viewport={{ once: false, amount: 0.5 }}
                             transition={{ duration: 0.6 }}
                             className="mt-20"
                         >
@@ -169,8 +171,8 @@ export const About = () => {
                                         key={item.name}
                                         initial={{ opacity: 0, x: 50 }}
                                         whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true, amount: 0.5 }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                                        viewport={{ once: false, amount: 0.5 }}
+                                        transition={{ duration: 0.8, delay: index * 0.2 }}
                                         whileHover={{ scale: 1.05, borderColor: '#4C6FFF' }}
                                         className="bg-strenght-bg border border-strenght-border hover:border-strenght-hover p-4 rounded-lg transition-colors"
                                     >
@@ -183,92 +185,5 @@ export const About = () => {
                 </div>
             </div>
         </section>
-    )
-}
-
-// ===================================================
-// COMPOSANT TIMELINE ITEM
-// ===================================================
-const TimelineItem = ({ item, index, isFirst, isLast }) => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="flex items-start gap-4"
-        >
-            {/* Colonne ligne + point */}
-            <div className="flex flex-col items-center">
-                {/* Ligne du haut */}
-                {!isFirst && (
-                    <motion.div
-                        initial={{ scaleY: 0 }}
-                        whileInView={{ scaleY: 1 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.5, delay: index * 0.2 }}
-                        className="w-[2px] flex-1 min-h-[4rem] bg-gradient-to-b from-purple-accent/0 to-purple-accent origin-top"
-                    />
-                )}
-                {isFirst && <div className="min-h-[2rem]" />}
-
-                {/* Point */}
-                <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.3, delay: index * 0.2 + 0.3, type: "spring", stiffness: 200 }}
-                    className="w-2 h-2 rounded-full bg-purple-accent shrink-0 z-10"
-                />
-
-                {/* Ligne du bas */}
-                {!isLast && (
-                    <motion.div
-                        initial={{ scaleY: 0 }}
-                        whileInView={{ scaleY: 1 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.5, delay: index * 0.2 + 0.4 }}
-                        className="w-[2px] flex-1 min-h-[4rem] bg-gradient-to-b from-purple-accent to-purple-accent/0 origin-top"
-                    />
-                )}
-                {isLast && <div className="min-h-[2rem]" />}
-            </div>
-
-            {/* Contenu */}
-            <div className="h-20 flex flex-col">
-                <p className="font-semibold text-title">{item.name}</p>
-                <p className="text-sm text-text-main mt-1">{item.description}</p>
-            </div>
-        </motion.div>
-    )
-}
-
-// ===================================================
-// COMPOSANT TYPING EFFECT POUR LE CODE
-// ===================================================
-const CodeTypingEffect = ({ isVisible }) => {
-    const codeContent = [
-        { line: '<span class="text-purple-const">const</span> <span class="text-blue-const">nabila</span> = {', delay: 0 },
-        { line: '  <span class="text-red-const">role:</span> <span class="text-green-const">"Web Developer"</span>,', delay: 0.5 },
-        { line: '  <span class="text-red-const">passion:</span> <span class="text-green-const">"Coder"</span>,', delay: 1 },
-        { line: '  <span class="text-red-const">stack:</span> [<span class="text-green-const">"React", "Node.js", "MongoDB", "..."</span>],', delay: 1.5 },
-        { line: '  <span class="text-red-const">learning:</span> <span class="text-green-const">"Toujours plus..."</span>,', delay: 2 },
-        { line: '  <span class="text-red-const">disponible:</span> <span class="text-green-const">"Juin 2026"</span>', delay: 2.5 },
-        { line: '};', delay: 3 },
-        { line: '<span class="italic text-gray-500">// Prête à relever de nouveaux défis !</span>', delay: 3.5 }
-    ]
-
-    return (
-        <div>
-            {codeContent.map((item, index) => (
-                <motion.p
-                    key={index}
-                    initial={{ opacity: 0 }}
-                    animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: item.delay, duration: 0.3 }}
-                    dangerouslySetInnerHTML={{ __html: item.line }}
-                />
-            ))}
-        </div>
     )
 }
