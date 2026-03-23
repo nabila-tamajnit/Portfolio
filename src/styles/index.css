@@ -30,7 +30,17 @@
   --color-code-gradient: linear-gradient(180deg, rgba(95, 53, 213, 0.05), transparent);
 
   --color-corner-purple: radial-gradient(circle at top right, rgba(95, 53, 213, 0.25), transparent 60%);
-  --color-corner-blue: radial-gradient(circle at bottom left, rgba(76, 111, 255, 0.18), transparent 60%)
+  --color-corner-blue: radial-gradient(circle at bottom left, rgba(76, 111, 255, 0.18), transparent 60%);
+
+  /* Couleurs code */
+  --color-dark-snippet: #141619;
+  --color-dark-code: #1a1d24;
+  --color-purple-const: #C678DC;
+  --color-blue-const: #61AFEF;
+  --color-red-const: #E16C75;
+  --color-green-const: #98C379;
+
+  --color-blue-bg: #060E11;
 
 
   /* Style fonts */
@@ -42,6 +52,10 @@
 }
 
 /* ---------- Styles de base ------------ */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-family-inter);
 }
@@ -53,6 +67,14 @@ h4,
 h5,
 h6 {
   font-family: var(--font-family-space);
+}
+
+.font-link {
+  font-family: var(--font-family-link);
+}
+
+.font-fira {
+  font-family: var(--font-family-fira);
 }
 
 /* Scrollbar */
