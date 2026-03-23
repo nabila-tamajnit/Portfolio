@@ -31,14 +31,14 @@ export const SocialLinks = () => {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center md:justify-start gap-8" >
+    <div className="flex flex-wrap gap-6 sm:gap-8" >
       {socialLinks.map((link) => (
         <a
           key={link}
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex gap-3 text-sm font-medium font-family-link text-white lg:text-text-main hover:text-[#5F35D5] transition-colors"
+          className="flex gap-2 sm:gap-3 text-sm font-medium font-family-link text-white lg:text-text-main hover:text-[#5F35D5] transition-colors"
         >
           <div className="w-5 h-5">
             {link.icon}

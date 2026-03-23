@@ -1,13 +1,13 @@
-import { a } from "motion/react-client";
 import { projects } from "../../data/projects"
 
 export const Projects = () => {
 
     return (
 
-        <section id="projects" className="py-32 px-6 lg:px-12 bg-bg-main bg-[radial-gradient(circle_at_right,#3B82F6_0%,transparent_25%),radial-gradient(circle_at_bottom_left,#5F35D5_0%,transparent_20%)]">
+        <section id="projects" className=" py-15 sm:py-25 px-6 lg:px-12 bg-bg-main bg-[radial-gradient(circle_at_right,#3B82F6_0%,transparent_25%)]">
             <div className="max-w-7xl mx-auto">
 
+                {/* Titre */}
                 <div className="text-center mb-20 ">
                     <div className="flex items-center justify-center mb-8">
 
@@ -24,6 +24,7 @@ export const Projects = () => {
                     </p>
                 </div>
 
+                {/* Projets */}
                 <div className="space-y-16">
                     {projects.map((project, index) => (
                         <div
@@ -43,8 +44,8 @@ export const Projects = () => {
 
                                 </div>
 
-                                <div className="text-[#E8F0FF]">
-                                    <h3 className=" text-title text-3xl font-semibold mb-4 " >
+                                <div>
+                                    <h3 className="text-title text-3xl font-semibold mb-4 " >
                                         {project.title}
                                     </h3>
                                     <p className="text-lg text-text-main mb-6 " >
@@ -127,6 +128,8 @@ export const Projects = () => {
                     ))}
 
                 </div>
+
+
             </div>
         </section>
     )

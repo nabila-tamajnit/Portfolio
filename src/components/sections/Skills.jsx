@@ -3,9 +3,11 @@ import { skills } from "../../data/skills"
 export const Skills = () => {
 
     return (
-        <section id="skills" className="py-32 px-6 lg:px-12 bg-bg-main bg-[radial-gradient(ellipse_at_center,#5F35D5_10%,transparent_20%),radial-gradient(ellipse_at_center,#4C6FFF_0%,transparent_45%)]">
+        <section id="skills" className=" py-15 sm:py-25 px-6 lg:px-12 bg-bg-main bg-[radial-gradient(ellipse_at_center,#5F35D5_10%,transparent_20%),radial-gradient(ellipse_at_center,#4C6FFF_0%,transparent_45%)]">
 
             <div className="max-w-7xl mx-auto " >
+
+                {/* Titre */}
                 <div className="text-center mb-20">
 
                     <div className="flex items-center justify-center mb-8">
@@ -23,8 +25,7 @@ export const Skills = () => {
                     </p>
                 </div>
 
-                {/* <div className="w-30 h-10 bg-dark-bg [clip-path:polygon(50%_0%,_0%_100%,_100%_100%)]"></div> */}
-
+                {/* Skills */}
                 <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6" >
 
                     {skills.map((skill) => (
