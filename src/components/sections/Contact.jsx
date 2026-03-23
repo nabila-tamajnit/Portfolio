@@ -70,7 +70,7 @@ export const Contact = () => {
 
 
   return (
-    <section id="contact" className="py-15 sm:py-25 px-6 lg:px-12 pb-35 sm:pb-50 bg-bg-main bg-[radial-gradient(ellipse_at_center,#5F35D5_10%,transparent_55%),radial-gradient(ellipse_at_center,#4C6FFF_0%,transparent_65%)] sm:bg-[radial-gradient(ellipse_at_center,#5F35D5_10%,transparent_35%),radial-gradient(ellipse_at_center,#4C6FFF_0%,transparent_55%)]">
+    <section id="contact" className="py-15 sm:py-25 px-6 lg:px-12 pb-35 sm:pb-50 bg-bg-main bg-[radial-gradient(ellipse_at_center,#5F35D5_10%,transparent_55%),radial-gradient(ellipse_at_center,#4C6FFF_0%,transparent_65%)] sm:bg-[radial-gradient(ellipse_at_center,#5F35D5_10%,transparent_20%),radial-gradient(ellipse_at_center,#4C6FFF_0%,transparent_45%)]">
       <div className="max-w-7xl mx-auto">
 
         {/* Titre */}
@@ -110,7 +110,7 @@ export const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Votre nom"
-                  className="p-3 rounded-sm bg-bg-main border border-skills-border text-text-main"
+                  className="p-3 rounded-md bg-bg-main border border-skills-border text-text-main"
                 />
               </div>
 
@@ -127,7 +127,7 @@ export const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="votre.email@exemple.com"
-                  className="p-3 rounded-sm bg-bg-main border border-skills-border text-text-main"
+                  className="p-3 rounded-md bg-bg-main border border-skills-border text-text-main"
                 />
               </div>
             </div>
@@ -145,7 +145,7 @@ export const Contact = () => {
                 onChange={handleChange}
                 required
                 placeholder="Sujet de votre message"
-                className="p-3 rounded-sm bg-bg-main border border-skills-border text-text-main"
+                className="p-3 rounded-md bg-bg-main border border-skills-border text-text-main"
               />
             </div>
 
@@ -162,7 +162,7 @@ export const Contact = () => {
                 required
                 rows="6"
                 placeholder="Votre message..."
-                className="p-3 rounded-sm bg-bg-main border border-skills-border text-text-main"
+                className="p-3 rounded-md bg-bg-main border border-skills-border text-text-main"
               />
             </div>
 
