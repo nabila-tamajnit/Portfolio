@@ -39,16 +39,6 @@ export const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden'
-        } else {
-            document.body.style.overflow = 'unset'
-        }
-        return () => {
-            document.body.style.overflow = 'unset'
-        }
-    }, [isOpen])
 
     return (
         <>
@@ -90,26 +80,11 @@ export const Navbar = () => {
                                 <NavHashLink
                                     smooth
                                     to={link.href}
-                                    className={`
-                    relative text-sm uppercase font-link tracking-wider
-                    transition-colors duration-300
-                    ${activeSection === link.href
-                                            ? 'text-purple-accent'
-                                            : 'text-text-sec hover:text-purple-accent'
-                                        }
-                    group
-                  `}
+                                    className={`relative text-sm uppercase font-link tracking-wider transition-colors duration-300 group ${activeSection === link.href ? 'text-purple-accent' : 'text-text-sec hover:text-purple-accent'}`}
                                 >
                                     {link.name}
                                     <span
-                                        className={`
-                      absolute -bottom-1 left-0 h-0.5 bg-purple-accent
-                      transition-all duration-300 ease-out
-                      ${activeSection === link.href
-                                                ? 'w-full'
-                                                : 'w-0 group-hover:w-full'
-                                            }
-                    `}
+                                        className={` absolute -bottom-1 left-0 h-0.5 bg-purple-accent transition-all duration-300 ease-out ${activeSection === link.href ? 'w-full' : 'w-0 group-hover:w-full'} `}
                                     />
                                 </NavHashLink>
                             </motion.li>
@@ -127,16 +102,13 @@ export const Navbar = () => {
                     >
                         <div className="flex flex-col gap-1.5 w-6">
                             <span
-                                className={`w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-2' : ''
-                                    }`}
+                                className={`w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-2' : ''}`}
                             />
                             <span
-                                className={`w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : ''
-                                    }`}
+                                className={`w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : ''}`}
                             />
                             <span
-                                className={`w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45 -translate-y-2' : ''
-                                    }`}
+                                className={`w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}
                             />
                         </div>
                     </motion.button>
@@ -170,14 +142,7 @@ export const Navbar = () => {
                                             smooth
                                             to={link.href}
                                             onClick={toggleMenu}
-                                            className={`
-                         font-medium uppercase font-link tracking-wider
-                        transition-colors duration-300
-                        ${activeSection === link.href
-                                                    ? 'text-purple-accent'
-                                                    : 'text-title hover:text-purple-accent'
-                                                }
-                      `}
+                                            className={` font-medium uppercase font-link tracking-wider transition-colors duration-300 ${activeSection === link.href ? 'text-purple-accent' : 'text-title hover:text-purple-accent'} `}
                                         >
                                             {link.name}
                                         </NavHashLink>

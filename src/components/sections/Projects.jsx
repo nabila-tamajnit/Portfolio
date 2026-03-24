@@ -1,134 +1,99 @@
+import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react"
 import { projects } from "../../data/projects"
+import { ProjectCard } from "./projects/ProjectCard"
+import { ComingSoon } from "./projects/ComingSoon"
+import { ViewMore } from "./projects/ViewMore"
 
 export const Projects = () => {
+    const [showAll, setShowAll] = useState(false)
+
+    const visibleProjects = showAll ? projects : projects.slice(0, 3)
 
     return (
-
-        <section id="projects" className=" py-15 sm:py-25 px-6 lg:px-12 bg-bg-main bg-[radial-gradient(circle_at_right,#3B82F6_0%,transparent_25%)]">
+        <section
+            id="projects"
+            className="py-16 sm:py-24 px-6 lg:px-12 bg-bg-main bg-[radial-gradient(circle_at_right,#3B82F6_0%,transparent_25%)]"
+        >
             <div className="max-w-7xl mx-auto">
 
-                {/* Titre */}
-                <div className="text-center mb-20 ">
-                    <div className="flex items-center justify-center mb-8">
+                {/* ========== TITRE ========== */}
+                <div className="text-center mb-20">
 
-                        <div className="h-0.5 bg-gradient-to-l from-[#5F35D5] to-[#5F35D5/0 w-20 lg:w-60" ></div>
-                        <h4 className="text-sm text-white font-medium tracking-widest mx-2">PROJETS</h4>
-                        <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#5F35D5]/0 w-20 lg:w-60" ></div>
+                    {/* ----- Petit titre ----- */}
+                    <div className="flex items-center justify-center mb-8 overflow-hidden">
+                        <motion.div
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            viewport={{ once: false, amount: 0.5 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="h-0.5 bg-gradient-to-l from-purple-accent to-purple-accent/0 w-20 lg:w-60 origin-right"
+                        />
 
+                        <motion.h4
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: false, amount: 0.5 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="text-sm text-white font-medium tracking-widest mx-2"
+                        >
+                            PROJETS
+                        </motion.h4>
+
+                        <motion.div
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            viewport={{ once: false, amount: 0.5 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="h-0.5 bg-gradient-to-r from-purple-accent to-purple-accent/0 w-20 lg:w-60 origin-left"
+                        />
                     </div>
 
-                    <h2 className="text-5xl lg:text-6xl font-bold text-title mb-6 leading-tight" >Mes réalisations</h2>
+                    {/* ----- Titre principal ----- */}
+                    <motion.h2
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.5 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="text-5xl lg:text-6xl font-bold text-title mb-6 leading-tight"
+                    >
+                        Mes réalisations
+                    </motion.h2>
 
-                    <p className="text-xl text-text-main max-w-2xl mx-auto">
+                    {/* ----- Sous titre ----- */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.5 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        className="text-xl text-text-main max-w-2xl mx-auto"
+                    >
                         Projets sur lesquels j'ai travaillé durant ma formation
-                    </p>
+                    </motion.p>
                 </div>
 
-                {/* Projets */}
+                {/* ========== PROJETS ========== */}
                 <div className="space-y-16">
-                    {projects.map((project, index) => (
-                        <div
-                            key={project.id}
-                            className={`group grid lg:grid-cols-2 items-center gap-12 bg-card-main border border-skills-border rounded-lg overflow-hidden hover:shadow-skills-glow hover:-translate-y-0.5 transition-all p-8 ${index % 2 === 1 ? 'lg:flex-row-revers' : ''}`}
-                        >
-
-                            <div className={index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}>
-
-                                <div className="flex items-center gap-2 mb-6">
-
-                                    {/* <div className="w-2 h-2 bg-sage-green rounded-full"></div> */}
-                                    <h4 className="text-4xl text-purple-accent font-bold tracking-widest">
-                                        {project.number}
-                                    </h4>
-                                    <div className="h-0.5 bg-gradient-to-r from-[#5F35D5] to-[#5F35D5]/0 flex-1"></div>
-
-                                </div>
-
-                                <div>
-                                    <h3 className="text-title text-3xl font-semibold mb-4 " >
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-lg text-text-main mb-6 " >
-                                        {project.description}
-                                    </p>
-
-                                    <div className="flex flex-wrap gap-5 mb-6">
-                                        {project.tags?.map((tag) => (
-                                            <img
-                                                key={tag}
-                                                alt={tag.name}
-                                                src={tag.icon}
-                                                className="w-6 h-6 mb-3"
-                                            />
-
-                                        ))}
-                                    </div>
-
-                                    <div className="flex gap-5">
-                                        {project.links?.map((link) => (
-
-                                            <a
-                                                href={link.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <img
-                                                    src={link.icon}
-                                                    alt={link.name}
-                                                    className="w-12 h-12 hover:opacity-70"
-                                                />
-                                            </a>
-                                        ))}
-                                        {/* <a
-                                            href={project.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="bg-purple-accent hover:bg-purple-hover text-title text-sm font-semibold py-1.5 px-3.5 rounded"
-                                        >
-                                            Code
-                                        </a>
-
-                                        <a href={project.demo}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="bg-purple-accent hover:bg-purple-hover text-title text-sm font-semibold py-1.5 px-3.5 rounded"
-
-                                        >
-                                            Demo
-                                        </a> */}
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            {/* Vidéo */}
-                            <div className={` ${index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
-                                <div className="relative aspect-video overflow-hidden border border-sage-green rounded bg-gray-200">
-                                    <video
-                                        src={project.video}
-                                        poster={project.image}
-                                        className="hidden md:block w-full h-full object-cover"
-                                        loop
-                                        muted
-                                        playsInline
-                                        onMouseEnter={(e) => e.target.play()}
-                                        onMouseLeave={(e) => {
-                                            e.target.pause();
-                                            e.target.currentTime = 0;
-                                        }}
-                                    />
-                                    <img
-                                        src={project.image}
-                                        className="block md:hidden w-full h-full object-cover"
-                                    />
-                                </div>
-                            </div>
-
-                        </div>
-                    ))}
-
+                    <AnimatePresence>
+                        {visibleProjects.map((project, index) => (
+                            <ProjectCard
+                                key={project.id}
+                                project={project}
+                                index={index}
+                            />
+                        ))}
+                    </AnimatePresence>
                 </div>
 
+                {/* ========== BOUTON "VOIR PLUS" ========== */}
+                {!showAll && projects.length > 3 && (
+                    <ViewMore onClick={() => setShowAll(true)} />
+                )}
+
+                {/* ========== MESSAGE "EN COURS" ========== */}
+                {(projects.length <= 3 || showAll) && (
+                    <ComingSoon />
+                )}
 
             </div>
         </section>

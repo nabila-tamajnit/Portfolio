@@ -56,6 +56,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  overflow-x: hidden;  /* ← Empêche le scroll horizontal */
+}
+
 body {
   font-family: var(--font-family-inter);
 }
