@@ -123,9 +123,9 @@ export const Navbar = () => {
                         animate={{ y: 0 }}
                         exit={{ y: '-100%' }}
                         transition={{ type: 'tween', duration: 0.6 }}
-                        className="md:hidden fixed inset-0 w-full bg-bg-main z-40"
+                        className="md:hidden fixed w-full bg-bg-main z-40"
                     >
-                        <div className="h-full flex items-center justify-center pt-20 pb-20">
+                        <div className="flex items-center justify-center py-20">
                             <ul className="flex flex-col items-center gap-10">
                                 {navLinks.map((link, index) => (
                                     <motion.li
