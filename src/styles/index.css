@@ -92,10 +92,10 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-purple-accent);
+  background: #10182A;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-purple-hover);
+  background: #5F35D5;
 }
