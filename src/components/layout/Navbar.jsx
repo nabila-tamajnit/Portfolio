@@ -60,7 +60,7 @@ export const Navbar = () => {
                         className="flex items-end"
                     >
                         <img
-                            src="/assets/logos/Logo.svg"
+                            src="assets/brand/logo.svg"
                             height="30"
                             width="30"
                             alt="Logo Nabila"

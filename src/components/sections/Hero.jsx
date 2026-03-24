@@ -42,10 +42,10 @@ export const Hero = () => {
                 muted
                 playsInline
                 preload="none"
-                poster="/assets/profile_picture/bg_img_hero.png"
+                poster="/assets/images/hero/bg_img_hero.png"
                 className="absolute inset-0 w-full h-full object-cover object-[75%] lg:object-center"
             >
-                <source src="/assets/profile_picture/bg_video_hero.mp4" type="video/mp4" />
+                <source src="/assets/videos/hero/bg_video_hero.mp4" type="video/mp4" />
             </motion.video>
 
             {/* ----- OVERLAY ----- */}
@@ -110,7 +110,7 @@ export const Hero = () => {
                         </motion.a>
 
                         <motion.a
-                            href="cv/CV_NabilaTamajnit.pdf"
+                            href="assets/docs/CV_NabilaTamajnit.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}

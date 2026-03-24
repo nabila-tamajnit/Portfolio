@@ -6,8 +6,8 @@ export const projects = [
     number: '01',
     title: 'DevPath Junior',
     description: "Une plateforme interactive dédiée aux développeurs juniors préparant des entretiens techniques. Elle réunit des jeux d’entraînement, un simulateur d’entretien, une to-do list synchronisée et un générateur de Markdown, dans une interface responsive avec thème sombre et clair.",
-    image: '/assets/projects/devpath.png',
-    video: '/assets/projects/devpath.mp4',
+    image: '/assets/images/projects/devpath.png',
+    video: '/assets/videos/projects/devpath.mp4',
     tags: [
       {
         name: 'Figma',
@@ -29,17 +29,17 @@ export const projects = [
     links: [
       {
         name: 'github',
-        icon: '/assets/projects/icons/github1.svg',
+        icon: '/assets/icons/projects/github.svg',
         link: 'https://github.com/nabila-tamajnit/DevPath_Junior.git'
       },
       {
         name: 'Demo',
-        icon: '/assets/projects/icons/net1.svg',
+        icon: '/assets/icons/projects/net.svg',
         link: '#'
       },
       // {
       //   name: 'Figma',
-      //   icon: '/assets/projects/icons/figma1.svg',
+      //   icon: '/assets/icons/projects/figma.svg',
       //   link: '#'
       // }
     ]
@@ -47,24 +47,24 @@ export const projects = [
   // {
   //   id: 2,
   //   number: '02',
-  //   title: 'DevPath Junior',
-  //   description: "Une plateforme interactive dédiée aux développeurs juniors préparant des entretiens techniques. Elle réunit des jeux d’entraînement, un simulateur d’entretien, une to-do list synchronisée et un générateur de Markdown, dans une interface responsive avec thème sombre et clair.",
-  //   image: '/assets/projects/portfolio.jpg',
-  //   tags: ['React', 'Tailwind CSS', 'Vite'],
+  //   title: '',
+  //   description: "",
+  //   image: '#',
+  //   tags: [],
   //   links: [
   //     {
   //       name: 'github',
-  //       icon: '/assets/projects/icons/github1.svg',
-  //       link: 'https://github.com/nabila-tamajnit/DevPath_Junior.git'
+  //       icon: '/assets/icons/projects/github.svg',
+  //       link: '#'
   //     },
   //     {
   //       name: 'Demo',
-  //       icon: '/assets/projects/icons/net1.svg',
+  //       icon: '/assets/icons/projects/net.svg',
   //       link: '#'
   //     },
   //     // {
   //     //   name: 'Figma',
-  //     //   icon: '/assets/projects/icons/figma1.svg',
+  //     //   icon: '/assets/icons/projects/figma.svg',
   //     //   link: '#'
   //     // }
   //   ]
@@ -72,24 +72,24 @@ export const projects = [
   // {
   //   id: 3,
   //   number: '03',
-  //   title: 'DevPath Junior',
-  //   description: "Une plateforme interactive dédiée aux développeurs juniors préparant des entretiens techniques. Elle réunit des jeux d’entraînement, un simulateur d’entretien, une to-do list synchronisée et un générateur de Markdown, dans une interface responsive avec thème sombre et clair.",
-  //   image: '/assets/projects/placeholder.jpg',
-  //   tags: ['React', 'Node.js', 'MongoDB'],
+  //   title: '',
+  //   description: "",
+  //   image: '#',
+  //   tags: [],
   //   links: [
   //     {
   //       name: 'github',
-  //       icon: '/assets/projects/icons/github1.svg',
-  //       link: 'https://github.com/nabila-tamajnit/DevPath_Junior.git'
+  //       icon: '/assets/icons/projects/github.svg',
+  //       link: '#'
   //     },
   //     {
   //       name: 'Demo',
-  //       icon: '/assets/projects/icons/net1.svg',
+  //       icon: '/assets/icons/projects/net.svg',
   //       link: '#'
   //     },
   //     // {
   //     //   name: 'Figma',
-  //     //   icon: '/assets/projects/icons/figma1.svg',
+  //     //   icon: '/assets/icons/projects/figma.svg',
   //     //   link: '#'
   //     // }
   //   ]
