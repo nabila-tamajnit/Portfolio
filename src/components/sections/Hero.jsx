@@ -49,7 +49,7 @@ export const Hero = () => {
             </motion.video>
 
             {/* ----- OVERLAY ----- */}
-            <div className="mx-auto w-full max-w-7xl lg:max-w-full flex justify-center absolute inset-0 bg-black/50 lg:bg-black/30 px-6">
+            <div className="mx-auto w-full max-w-7xl lg:max-w-full flex justify-center absolute inset-0 bg-black/70 lg:bg-black/30 px-6">
 
                 {/* =========== TITRE ========== */}
                 <div className="relative z-10 flex flex-col pt-24 lg:max-w-4xl lg:pr-40 2xl:max-w-5xl 2xl:pt-32">
