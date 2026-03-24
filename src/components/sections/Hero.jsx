@@ -60,7 +60,7 @@ export const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
-                        <p className="text-2xl text-purple-accent font-bold mb-2">
+                        <p className="text-2xl text-purple-primary font-bold mb-2">
                             Web Developer Junior
                         </p>
                     </motion.div>
@@ -77,7 +77,7 @@ export const Hero = () => {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.8, type: "spring", stiffness: 200 }}
-                            className="text-purple-accent text-6xl lg:text-8xl"
+                            className="text-purple-primary text-6xl lg:text-8xl"
                         >
                             Nabila
                         </motion.strong>
@@ -110,7 +110,7 @@ export const Hero = () => {
                         </motion.a>
 
                         <motion.a
-                            href="assets/docs/CV_NabilaTamajnit.pdf"
+                            href="assets/docs/CV-Nabila-Tamajnit-Dev.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}

@@ -60,7 +60,7 @@ export const Navbar = () => {
                         className="flex items-end"
                     >
                         <img
-                            src="assets/brand/logo.svg"
+                            src="assets/brand/mid-logo.svg"
                             height="30"
                             width="30"
                             alt="Logo Nabila"
@@ -80,7 +80,7 @@ export const Navbar = () => {
                                 <NavHashLink
                                     smooth
                                     to={link.href}
-                                    className={`relative text-sm uppercase font-link tracking-wider transition-colors duration-300 group ${activeSection === link.href ? 'text-purple-accent' : 'text-text-sec hover:text-purple-accent'}`}
+                                    className={`relative text-sm uppercase font-medium font-link tracking-wider transition-colors duration-300 group ${activeSection === link.href ? 'text-purple-hover' : 'text-text-main hover:text-purple-hover'}`}
                                 >
                                     {link.name}
                                     <span
@@ -142,7 +142,7 @@ export const Navbar = () => {
                                             smooth
                                             to={link.href}
                                             onClick={toggleMenu}
-                                            className={` font-medium uppercase font-link tracking-wider transition-colors duration-300 ${activeSection === link.href ? 'text-purple-accent' : 'text-title hover:text-purple-accent'} `}
+                                            className={` font-medium uppercase font-link tracking-wider transition-colors duration-300 ${activeSection === link.href ? 'text-purple-hover' : 'text-title hover:text-purple-hover'} `}
                                         >
                                             {link.name}
                                         </NavHashLink>
