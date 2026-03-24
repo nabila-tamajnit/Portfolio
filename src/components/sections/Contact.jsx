@@ -254,7 +254,7 @@ export const Contact = () => {
                 whileTap={{ scale: 0.95 }}
                 type="submit"
                 disabled={isLoading}
-                className="bg-purple-accent text-title px-8 py-3 rounded-md font-bold hover:bg-purple-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-w-[200px]"
+                className="bg-purple-accent text-title px-8 py-3 rounded-md font-bold hover:bg-purple-hover transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed min-w-[200px]"
               >
                 {isLoading ? (
                   <motion.span
