@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Footer } from "./components/layout/Footer"
 import { Navbar } from "./components/layout/Navbar"
 import { About } from "./components/sections/About"
@@ -7,6 +8,15 @@ import { Projects } from "./components/sections/Projects"
 import { Skills } from "./components/sections/Skills"
 
 function App() {
+
+  useEffect(() => {
+    
+    window.scrollTo(0, 0);
+    
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  }, []);
 
   return (
     <>
