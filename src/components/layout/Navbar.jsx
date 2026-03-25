@@ -36,6 +36,7 @@ export const Navbar = () => {
         }
 
         window.addEventListener('scroll', handleScroll)
+        // window.history.replaceState(null, null, window.location.pathname);
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 

@@ -263,7 +263,7 @@ export const Contact = () => {
                   >
                     Envoi en cours...
                   </motion.span>
-                ) : 'Envoyer le message'
+                ) : 'Envoyer'
                 }
               </motion.button>
             </motion.div>
@@ -275,7 +275,7 @@ export const Contact = () => {
                   initial={{ opacity: 0, height: 0, y: 10 }}
                   animate={{ opacity: 1, height: "auto", y: 0 }}
                   exit={{ opacity: 0, height: 0, y: 10 }}
-                  className={`p-4 rounded-md text-center font-medium overflow-hidden ${alertType === 'success' ? 'bg-purple-accent/10 text-purple-accent border border-purple-accent/20' : 'bg-red-500/10 text-red-500 border border-red-500/20'
+                  className={`p-2 text-center font-medium overflow-hidden ${alertType === 'success' ? 'text-purple-accent' : 'text-red-500 border'
                     }`}
                 >
                   {alertMessage}
