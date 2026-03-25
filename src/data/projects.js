@@ -35,7 +35,7 @@ export const projects = [
       {
         name: 'Demo',
         icon: '/assets/icons/projects/net.svg',
-        link: '#'
+        link: 'https://devpath-junior.vercel.app/'
       },
       // {
       //   name: 'Figma',
