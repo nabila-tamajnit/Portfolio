@@ -69,6 +69,8 @@ export const ProjectCard = ({ project, index }) => {
                             className="w-6 h-6"
                             title={tag.name}
                         />
+
+                        
                     ))}
                 </motion.div>
 
@@ -77,7 +79,7 @@ export const ProjectCard = ({ project, index }) => {
                     initial={{ opacity: 0, y: 20, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 1 }}
                     transition={{ duration: 0.6, delay: 1.3 }}
-                    className="flex gap-5"
+                    className="relative flex gap-5"
                 >
                     {project.links?.map((link) => (
                         <a
@@ -94,6 +96,10 @@ export const ProjectCard = ({ project, index }) => {
                                 alt={link.name}
                                 className="w-12 h-12 opacity-80 hover:opacity-100 transition-opacity"
                             />
+
+                            <span className="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover/link:scale-100">
+                                Liens {link.name}
+                            </span>
                         </a>
                     ))}
                 </motion.div>

@@ -28,7 +28,7 @@ export const projects = [
     ],
     links: [
       {
-        name: 'github',
+        name: 'Github',
         icon: '/assets/icons/projects/github.svg',
         link: 'https://github.com/nabila-tamajnit/DevPath_Junior.git'
       },
@@ -53,7 +53,7 @@ export const projects = [
   //   tags: [],
   //   links: [
   //     {
-  //       name: 'github',
+  //       name: 'Github',
   //       icon: '/assets/icons/projects/github.svg',
   //       link: '#'
   //     },
