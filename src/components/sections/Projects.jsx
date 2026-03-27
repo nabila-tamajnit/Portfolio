@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { projects } from "../../data/projects"
 import { ProjectCard } from "./projects/ProjectCard"
 import { ComingSoon } from "./projects/ComingSoon"
@@ -7,6 +7,16 @@ import { ViewMore } from "./projects/ViewMore"
 
 export const Projects = () => {
     const [showAll, setShowAll] = useState(false)
+    const sectionProjectsRef = useRef(null)
+
+    const handleToggleProjects = () => {
+        if (showAll) {
+            sectionProjectsRef.current?.scrollIntoView({
+                block: "end"
+            });
+        }
+        setShowAll(!showAll);
+    }
 
     const visibleProjects = showAll ? projects : projects.slice(0, 3)
 
@@ -18,7 +28,7 @@ export const Projects = () => {
             <div className="max-w-7xl mx-auto">
 
                 {/* ========== TITRE ========== */}
-                <div className="text-center mb-20">
+                <div  className="text-center mb-20">
 
                     {/* ----- Petit titre ----- */}
                     <div className="flex items-center justify-center mb-8 overflow-hidden">
@@ -73,7 +83,7 @@ export const Projects = () => {
                 </div>
 
                 {/* ========== PROJETS ========== */}
-                <div className="space-y-16">
+                <div ref={sectionProjectsRef} className="space-y-16">
                     <AnimatePresence>
                         {visibleProjects.map((project, index) => (
                             <ProjectCard
@@ -86,12 +96,15 @@ export const Projects = () => {
                 </div>
 
                 {/* ========== BOUTON "VOIR PLUS" ========== */}
-                {!showAll && projects.length > 3 && (
-                    <ViewMore onClick={() => setShowAll(true)} />
+                {projects.length > 3 && (
+                    <ViewMore
+                        isOpen={showAll}
+                        onClick={handleToggleProjects}
+                    />
                 )}
 
                 {/* ========== MESSAGE "EN COURS" ========== */}
-                {(projects.length <= 3 || showAll) && (
+                {(projects.length <= 3) && (
                     <ComingSoon />
                 )}
 

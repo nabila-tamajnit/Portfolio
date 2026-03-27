@@ -1,7 +1,15 @@
 import { motion } from "framer-motion"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, ChevronUp } from "lucide-react"
+import { useState } from "react"
 
 export const ViewMore = ({ onClick }) => {
+    const [isOpen, setIsOpen] = useState(false)
+
+    const handleToggle = () => {
+        setIsOpen(!isOpen)
+        if (onClick) onClick()
+    }
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -11,7 +19,7 @@ export const ViewMore = ({ onClick }) => {
             className="mt-16 text-center"
         >
             <motion.button
-                onClick={onClick}
+                onClick={handleToggle}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 animate={{
@@ -22,18 +30,21 @@ export const ViewMore = ({ onClick }) => {
                 }}
                 className="group relative inline-flex items-center gap-3 px-8 py-4 bg-purple-accent text-title font-semibold rounded-lg hover:bg-purple-hover transition-colors"
             >
-                <span>Voir plus de projets</span>
+                <span>{isOpen ? "Voir moins" : "Voir plus"}</span>
 
-                <motion.svg
-                    animate={{ y: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <motion.div
+                    animate={{
+                        y: isOpen ? 0 : [0, 5, 0],
+                        rotate: isOpen ? 180 : 0
+                    }}
+                    transition={{ 
+                        y: { duration: 1.5, repeat: Infinity },
+                        rotate: { duration: 0.3 } 
+                    }}
+                    className="flex items-center justify-center"
                 >
-                    <ChevronDown />
-                </motion.svg>
+                    <ChevronDown className="w-5 h-5" />
+                </motion.div>
             </motion.button>
         </motion.div>
     )

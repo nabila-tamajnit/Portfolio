@@ -3,19 +3,27 @@ import { useRef } from "react"
 
 export const ProjectCard = ({ project, index }) => {
     const cardRef = useRef(null)
-    const isInView = useInView(cardRef, { once: false, amount: 0.3 })
+    
+    // Détection si on est sur mobile pour adapter l'animation
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+    // Seuil plus bas (0.1) pour garantir le déclenchement
+    const isInView = useInView(cardRef, { once: false, amount: 0.1 })
+
+    // Configuration adaptative
+    const initialX = isMobile ? 0 : (index % 2 === 0 ? -100 : 100);
+    const initialY = isMobile ? 20 : 0; // On préfère un léger mouvement du bas vers le haut sur mobile
 
     return (
         <motion.div
             ref={cardRef}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -200 : 200 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -200 : 200 }}
-            whileHover={{ y: -4 }}
+            initial={{ opacity: 0, x: initialX, y: initialY }}
+            animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: initialX, y: initialY }}
             transition={{
-                duration: 1,
-                ease: [0.25, 0.1, 0.25, 1],
+                duration: isMobile ? 0.5 : 0.8, // Plus rapide sur mobile
+                ease: "easeOut",
             }}
-            className="group grid lg:grid-cols-2 items-center gap-12 bg-card-main border border-skills-border rounded-lg overflow-hidden hover:shadow-skills-glow p-8"
+            className="group grid lg:grid-cols-2 items-center gap-12 bg-card-main border border-skills-border rounded-lg overflow-hidden hover:shadow-skills-glow p-8 mb-10"
         >
 
             {/* ========== CONTENU ========== */}
@@ -25,7 +33,7 @@ export const ProjectCard = ({ project, index }) => {
                 <motion.div
                     initial={{ opacity: 0, x: -50, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: -50, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
                     className="flex items-center gap-2 mb-6"
                 >
                     <h4 className="text-4xl text-purple-accent font-bold tracking-widest">
@@ -38,7 +46,7 @@ export const ProjectCard = ({ project, index }) => {
                 <motion.h3
                     initial={{ opacity: 0, x: -20, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: -20, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.9 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-title text-3xl font-semibold mb-4"
                 >
                     {project.title}
@@ -48,7 +56,7 @@ export const ProjectCard = ({ project, index }) => {
                 <motion.p
                     initial={{ opacity: 0, x: -20, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: -20, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
                     className="text-lg text-text-main mb-6"
                 >
                     {project.description}
@@ -58,7 +66,7 @@ export const ProjectCard = ({ project, index }) => {
                 <motion.div
                     initial={{ opacity: 0, x: -20, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: -20, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 1.1 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
                     className="flex flex-wrap gap-5 mb-6"
                 >
                     {project.tags?.map((tag) => (
@@ -78,7 +86,7 @@ export const ProjectCard = ({ project, index }) => {
                 <motion.div
                     initial={{ opacity: 0, y: 20, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 1.3 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
                     className="relative flex gap-5"
                 >
                     {project.links?.map((link) => (
@@ -109,7 +117,7 @@ export const ProjectCard = ({ project, index }) => {
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.8, delay: 1.3 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
                 className={index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}
             >
                 <div className="relative aspect-video overflow-hidden border-2 border-purple-accent/30 rounded-lg bg-gray-200 hover:border-purple-accent transition-colors">
