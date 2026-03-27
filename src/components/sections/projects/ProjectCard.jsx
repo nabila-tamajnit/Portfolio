@@ -3,7 +3,7 @@ import { useRef } from "react"
 
 export const ProjectCard = ({ project, index }) => {
     const cardRef = useRef(null)
-    
+
     // Si mobile
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
@@ -76,7 +76,7 @@ export const ProjectCard = ({ project, index }) => {
                             title={tag.name}
                         />
 
-                        
+
                     ))}
                 </motion.div>
 
@@ -85,7 +85,7 @@ export const ProjectCard = ({ project, index }) => {
                     initial={{ opacity: 0, y: 20, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
-                    className="relative flex gap-5"
+                    className="relative flex gap-6"
                 >
                     {project.links?.map((link) => (
                         <a
@@ -93,19 +93,28 @@ export const ProjectCard = ({ project, index }) => {
                             href={link.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group/link"
+                            className="group/link flex flex-col items-center gap-2"
                         >
                             <motion.img
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                 whileTap={{ scale: 0.95 }}
                                 src={link.icon}
                                 alt={link.name}
-                                className="w-12 h-12 opacity-80 hover:opacity-100 transition-opacity"
+                                className=" w-10 h-10 md:w-12 md:h-12 opacity-80 hover:opacity-100 transition-opacity"
                             />
 
-                            <span className="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover/link:scale-100">
-                                Liens {link.name}
-                            </span>
+                            {isMobile && (
+                                <span className="text-[10px] text-text-main uppercase tracking-widest font-medium">
+                                    Lien {link.name}
+                                </span>
+                            )}
+
+                            {!isMobile && (
+
+                                <span className="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover/link:scale-100">
+                                    {link.name}
+                                </span>
+                            )}
                         </a>
                     ))}
                 </motion.div>
