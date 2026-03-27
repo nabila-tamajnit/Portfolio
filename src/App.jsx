@@ -11,22 +11,33 @@ function App() {
 
   // ========== REFRESH ==========
 useEffect(() => {
-  let isScrollingToHash = false;
-  const hash = window.location.hash;
+  // --- Détecte la session ---
+  const isNewSession = !sessionStorage.getItem('session_active');
 
-  // ----- Via lien -----
+  if (isNewSession) {
+    window.scrollTo(0, 0);
+    // Nettoie l'URL
+    if (window.location.hash) {
+      window.history.replaceState(null, null, window.location.pathname);
+    }
+    sessionStorage.setItem('session_active', 'true');
+  }
+
+  // Refresh à la section arrivée si pas nouvelle
+  let isScrollingToHash = false;
+  const hash = !isNewSession ? window.location.hash : null;
+
   if (hash) {
-    isScrollingToHash = true;
     const element = document.querySelector(hash);
     if (element) {
+      isScrollingToHash = true;
       setTimeout(() => {
         element.scrollIntoView({ behavior: "smooth" });
-        setTimeout(() => { isScrollingToHash = false; }, 800); 
+        setTimeout(() => { isScrollingToHash = false; }, 800);
       }, 100);
     }
   }
 
-  // ----- Via scroll -----
   const sections = document.querySelectorAll("section[id]");
   const observer = new IntersectionObserver(
     (entries) => {
@@ -45,6 +56,7 @@ useEffect(() => {
   sections.forEach((s) => observer.observe(s));
   return () => observer.disconnect();
 }, []);
+
 
 
   return (
