@@ -4,15 +4,13 @@ import { useRef } from "react"
 export const ProjectCard = ({ project, index }) => {
     const cardRef = useRef(null)
     
-    // Détection si on est sur mobile pour adapter l'animation
+    // Si mobile
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-    // Seuil plus bas (0.1) pour garantir le déclenchement
     const isInView = useInView(cardRef, { once: false, amount: 0.1 })
 
-    // Configuration adaptative
     const initialX = isMobile ? 0 : (index % 2 === 0 ? -100 : 100);
-    const initialY = isMobile ? 20 : 0; // On préfère un léger mouvement du bas vers le haut sur mobile
+    const initialY = isMobile ? 20 : 0;
 
     return (
         <motion.div
@@ -20,7 +18,7 @@ export const ProjectCard = ({ project, index }) => {
             initial={{ opacity: 0, x: initialX, y: initialY }}
             animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: initialX, y: initialY }}
             transition={{
-                duration: isMobile ? 0.5 : 0.8, // Plus rapide sur mobile
+                duration: isMobile ? 0.5 : 0.8,
                 ease: "easeOut",
             }}
             className="group grid lg:grid-cols-2 items-center gap-12 bg-card-main border border-skills-border rounded-lg overflow-hidden hover:shadow-skills-glow p-8 mb-10"
