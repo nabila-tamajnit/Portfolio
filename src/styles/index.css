@@ -58,7 +58,7 @@ html {
 }
 
 html, body {
-  overflow-x: hidden;  /* ← Empêche le scroll horizontal */
+  overflow-x: hidden;
 }
 
 body {
