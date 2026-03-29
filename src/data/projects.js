@@ -44,31 +44,46 @@ export const projects = [
       // }
     ]
   },
-  // {
-  //   id: 2,
-  //   number: '02',
-  //   title: '',
-  //   description: "",
-  //   image: '#',
-  //   tags: [],
-  //   links: [
-  //     {
-  //       name: 'Github',
-  //       icon: '/assets/icons/projects/github.svg',
-  //       link: '#'
-  //     },
-  //     {
-  //       name: 'Demo',
-  //       icon: '/assets/icons/projects/net.svg',
-  //       link: '#'
-  //     },
-  //     // {
-  //     //   name: 'Figma',
-  //     //   icon: '/assets/icons/projects/figma.svg',
-  //     //   link: '#'
-  //     // }
-  //   ]
-  // },
+  {
+    id: 2,
+    number: '02',
+    title: 'CineVerse',
+    description: "Une plateforme immersive d'exploration cinématographique connectée à l'API TMDB. Elle permet de rechercher des films et séries en temps réel, de consulter des fiches détaillées via des modales animées, et propose une expérience utilisateur fluide avec des chargements optimisés et un design sombre élégant.",
+    image: '/assets/images/projects/cineverse.png',
+    video: '/assets/videos/projects/cineverse.mp4',
+    tags: [
+      {
+        name: 'React',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+      },
+      {
+        name: 'JavaScript',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
+      },
+      {
+        name: 'Tailwind',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg'
+      },
+      {
+        name: 'Framer',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg',
+        invert: true
+      }
+    ],
+    links: [
+      {
+        name: 'Github',
+        icon: '/assets/icons/projects/github.svg',
+        link: 'https://github.com/nabila-tamajnit/CineVerse'
+      },
+      {
+        name: 'Demo',
+        icon: '/assets/icons/projects/net.svg',
+        link: 'https://cineverse-explorer.vercel.app/'
+      }
+    ]
+  }
+  ,
   // {
   //   id: 3,
   //   number: '03',

@@ -72,7 +72,7 @@ export const ProjectCard = ({ project, index }) => {
                             key={tag.name}
                             alt={tag.name}
                             src={tag.icon}
-                            className="w-6 h-6"
+                            className={`"w-6 h-6 ${tag.invert ? "invert" : ""}`}
                             title={tag.name}
                         />
 
