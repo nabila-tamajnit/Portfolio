@@ -1,5 +1,6 @@
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
+import { ArrowUpRight } from "lucide-react"
 
 export const ProjectCard = ({ project, index }) => {
     const cardRef = useRef(null)
@@ -184,7 +185,7 @@ export const ProjectCard = ({ project, index }) => {
                                                         onClick={() => setOpenDropdown(null)}
                                                         className="flex items-center gap-2 px-4 py-2.5 text-sm text-white hover:bg-gray-700 transition-colors"
                                                     >
-                                                        <span className="text-purple-accent">↗</span>
+                                                        <span className="text-purple-accent"><ArrowUpRight /></span>
                                                         {sub.name}
                                                     </a>
                                                 ))}
