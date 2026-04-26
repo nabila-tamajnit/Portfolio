@@ -1,10 +1,31 @@
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { motion, useInView, AnimatePresence } from "framer-motion"
+import { useRef, useState, useEffect } from "react"
 
 export const ProjectCard = ({ project, index }) => {
     const cardRef = useRef(null)
+    const [openDropdown, setOpenDropdown] = useState(null)
+    const dropdownRef = useRef(null)
 
-    // Si mobile
+    useEffect(() => {
+        if (!openDropdown) return
+
+        const handleClickOutside = (e) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+                setOpenDropdown(null)
+            }
+        }
+
+        const handleScroll = () => setOpenDropdown(null)
+
+        document.addEventListener('mousedown', handleClickOutside)
+        window.addEventListener('scroll', handleScroll, { passive: true })
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [openDropdown])
+
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
     const isInView = useInView(cardRef, { once: false, amount: 0.1 })
@@ -72,15 +93,13 @@ export const ProjectCard = ({ project, index }) => {
                             key={tag.name}
                             alt={tag.name}
                             src={tag.icon}
-                            className={`"w-6 h-6 ${tag.invert ? "invert" : ""}`}
+                            className={`w-6 h-6 ${tag.invert ? "invert" : ""}`}
                             title={tag.name}
                         />
-
-
                     ))}
                 </motion.div>
 
-                {/*  ----- Liens ----- */}
+                {/* ----- Liens ----- */}
                 <motion.div
                     initial={{ opacity: 0, y: 20, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 1 }}
@@ -88,34 +107,93 @@ export const ProjectCard = ({ project, index }) => {
                     className="relative flex gap-6"
                 >
                     {project.links?.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group/link flex flex-col items-center gap-2"
-                        >
-                            <motion.img
-                                whileHover={{ scale: 1.1, rotate: 5 }}
-                                whileTap={{ scale: 0.95 }}
-                                src={link.icon}
-                                alt={link.name}
-                                className=" w-10 h-10 md:w-12 md:h-12 opacity-80 hover:opacity-100 transition-opacity"
-                            />
+                        <div key={link.name} className="relative" ref={link.subLinks ? dropdownRef : null}>
 
-                            {isMobile && (
-                                <span className="text-[10px] text-text-main uppercase tracking-widest font-medium">
-                                    Lien {link.name}
-                                </span>
+                            {/* ── Lien simple ── */}
+                            {!link.subLinks && (
+                                <a
+                                    href={link.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group/link flex flex-col items-center gap-2"
+                                >
+                                    <motion.img
+                                        whileHover={{ scale: 1.1, rotate: 5 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        src={link.icon}
+                                        alt={link.name}
+                                        className="w-10 h-10 md:w-12 md:h-12 opacity-80 hover:opacity-100 transition-opacity"
+                                    />
+                                    {isMobile && (
+                                        <span className="text-[10px] text-text-main uppercase tracking-widest font-medium">
+                                            {link.name}
+                                        </span>
+                                    )}
+                                    {!isMobile && (
+                                        <span className="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover/link:scale-100">
+                                            {link.name}
+                                        </span>
+                                    )}
+                                </a>
                             )}
 
-                            {!isMobile && (
+                            {/* ── Lien avec dropdown ── */}
+                            {link.subLinks && (
+                                <>
+                                    <button
+                                        onClick={() => setOpenDropdown(
+                                            openDropdown === link.name ? null : link.name
+                                        )}
+                                        className="group/link flex flex-col items-center gap-2"
+                                    >
+                                        <motion.img
+                                            whileHover={{ scale: 1.1, rotate: 5 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            src={link.icon}
+                                            alt={link.name}
+                                            className="w-10 h-10 md:w-12 md:h-12 opacity-80 hover:opacity-100 transition-opacity"
+                                        />
+                                        {isMobile && (
+                                            <span className="text-[10px] text-text-main uppercase tracking-widest font-medium">
+                                                {link.name}
+                                            </span>
+                                        )}
+                                        {!isMobile && (
+                                            <span className="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover/link:scale-100">
+                                                {link.name}
+                                            </span>
+                                        )}
+                                    </button>
 
-                                <span className="absolute -top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover/link:scale-100">
-                                    {link.name}
-                                </span>
+                                    {/* Dropdown */}
+                                    <AnimatePresence>
+                                        {openDropdown === link.name && (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                                                transition={{ duration: 0.15 }}
+                                                className="absolute -top-24 left-4/5 -translate-x-1/2 z-10 bg-gray-800 rounded-lg overflow-hidden border border-gray-700 shadow-xl min-w-[130px]"
+                                            >
+                                                {link.subLinks.map((sub) => (
+                                                    <a
+                                                        key={sub.name}
+                                                        href={sub.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        onClick={() => setOpenDropdown(null)}
+                                                        className="flex items-center gap-2 px-4 py-2.5 text-sm text-white hover:bg-gray-700 transition-colors"
+                                                    >
+                                                        <span className="text-purple-accent">↗</span>
+                                                        {sub.name}
+                                                    </a>
+                                                ))}
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </>
                             )}
-                        </a>
+                        </div>
                     ))}
                 </motion.div>
             </div>

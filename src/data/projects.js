@@ -84,29 +84,61 @@ export const projects = [
     ]
   }
   ,
-  // {
-  //   id: 3,
-  //   number: '03',
-  //   title: '',
-  //   description: "",
-  //   image: '#',
-  //   tags: [],
-  //   links: [
-  //     {
-  //       name: 'github',
-  //       icon: '/assets/icons/projects/github.svg',
-  //       link: '#'
-  //     },
-  //     {
-  //       name: 'Demo',
-  //       icon: '/assets/icons/projects/net.svg',
-  //       link: '#'
-  //     },
-  //     // {
-  //     //   name: 'Figma',
-  //     //   icon: '/assets/icons/projects/figma.svg',
-  //     //   link: '#'
-  //     // }
-  //   ]
-  // }
+  {
+  id: 3,
+  number: '03',
+  title: 'BambooFlow',
+  description: "Une application full stack de gestion de tâches et de productivité, avec timer Pomodoro intégré et authentification JWT. Côté backend : API REST Express/MongoDB avec middlewares d'authentification et de sécurité (Helmet, rate limiting, Argon2). Côté frontend : React avec gestion d'état Jotai, routing protégé et interface responsive pensée pour la productivité du quotidien.",
+  image: '/assets/images/projects/bambooflow.png',
+  video: '/assets/videos/projects/bambooflow.mp4',
+  tags: [
+    {
+      name: 'React',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+    },
+    {
+      name: 'Tailwind',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg'
+    },
+    {
+      name: 'Node.js',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg'
+    },
+    {
+      name: 'Express',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+      invert: true
+    },
+    {
+      name: 'MongoDB',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg'
+    },
+    {
+      name: 'JWT',
+      icon: 'https://cdn.simpleicons.org/jsonwebtokens',
+      invert: true
+    }
+  ],
+  links: [
+  {
+    name: 'Github',
+    icon: '/assets/icons/projects/github.svg',
+    subLinks: [
+      {
+        name: 'Frontend',
+        link: 'https://github.com/nabila-tamajnit/BambooFlow_frontend'
+      },
+      {
+        name: 'Backend',
+        link: 'https://github.com/nabila-tamajnit/BambooFlow_backend'
+      }
+    ]
+  },
+  {
+    name: 'Demo',
+    icon: '/assets/icons/projects/net.svg',
+    link: 'https://bambooflow-app.vercel.app/'
+  }
+]
+}
 ];
