@@ -1,11 +1,13 @@
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { ArrowUpRight } from "lucide-react"
+import { useMediaQuery } from "../../../hooks/useMediaQuery"
 
 export const ProjectCard = ({ project, index }) => {
     const cardRef = useRef(null)
     const [openDropdown, setOpenDropdown] = useState(null)
     const dropdownRef = useRef(null)
+    const isMobile = useMediaQuery("(max-width: 767px)")
 
     useEffect(() => {
         if (!openDropdown) return
@@ -26,8 +28,6 @@ export const ProjectCard = ({ project, index }) => {
             window.removeEventListener('scroll', handleScroll)
         }
     }, [openDropdown])
-
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
     const isInView = useInView(cardRef, { once: false, amount: 0.1 })
 
@@ -206,27 +206,63 @@ export const ProjectCard = ({ project, index }) => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className={index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}
             >
-                <div className="relative aspect-video overflow-hidden border-2 border-purple-accent/30 rounded-lg bg-gray-200 hover:border-purple-accent transition-colors">
-                    <video
-                        src={project.video}
-                        poster={project.image}
-                        className="hidden md:block w-full h-full object-cover"
-                        loop
-                        muted
-                        playsInline
-                        onMouseEnter={(e) => e.target.play()}
-                        onMouseLeave={(e) => {
-                            e.target.pause()
-                            e.target.currentTime = 0
-                        }}
-                    />
-                    <img
-                        src={project.image}
-                        alt={project.title}
-                        className="block md:hidden w-full h-full object-cover"
-                    />
-                </div>
+                {(() => {
+                    const demoLink = project.links?.find(l => l.name === "Demo")
+
+                    const content = (
+                        <div className="relative aspect-video overflow-hidden border-2 border-purple-accent/30 rounded-lg bg-gray-200 hover:border-purple-accent transition-colors group/video">
+
+                            {/* Overlay desktop */}
+                            {demoLink && (
+                                <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover/video:opacity-100 transition-opacity duration-300">
+                                    <div className="bg-purple-accent/45 rounded-full p-3 translate-y-2 group-hover/video:translate-y-0 transition-transform duration-300">
+                                        <ArrowUpRight className="w-6 h-6 text-white" />
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Vidéo desktop */}
+                            <video
+                                src={project.video}
+                                poster={project.image}
+                                preload="none"
+                                className="hidden md:block w-full h-full object-cover"
+                                loop
+                                muted
+                                playsInline
+                                onMouseEnter={(e) => e.target.play()}
+                                onMouseLeave={(e) => {
+                                    e.target.pause()
+                                    e.target.currentTime = 0
+                                }}
+                            />
+
+                            {/* Image mobile */}
+                            <motion.img
+                                src={project.image}
+                                alt={project.title}
+                                loading="lazy"
+                                className="block md:hidden w-full h-full object-cover"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.4, ease: "easeOut" }}
+                            />
+                        </div>
+                    )
+
+                    return demoLink ? (
+                        <a
+                            href={demoLink.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Voir la démo de ${project.title}`}
+                        >
+                            {content}
+                        </a>
+                    ) : (
+                        content
+                    )
+                })()}
             </motion.div>
-        </motion.div>
+        </motion.div >
     )
 }
