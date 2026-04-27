@@ -1,15 +1,7 @@
 import { motion } from "framer-motion"
-import { ChevronDown, ChevronUp } from "lucide-react"
-import { useState } from "react"
+import { ChevronDown } from "lucide-react"
 
-export const ViewMore = ({ onClick }) => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const handleToggle = () => {
-        setIsOpen(!isOpen)
-        if (onClick) onClick()
-    }
-
+export const ViewMore = ({ isOpen, onClick }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -19,12 +11,10 @@ export const ViewMore = ({ onClick }) => {
             className="mt-16 text-center"
         >
             <motion.button
-                onClick={handleToggle}
+                onClick={onClick}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                animate={{
-                    y: [0, -8, 0]
-                }}
+                animate={{ y: [0, -8, 0] }}
                 transition={{
                     y: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
                 }}
@@ -37,9 +27,9 @@ export const ViewMore = ({ onClick }) => {
                         y: isOpen ? 0 : [0, 5, 0],
                         rotate: isOpen ? 180 : 0
                     }}
-                    transition={{ 
+                    transition={{
                         y: { duration: 1.5, repeat: Infinity },
-                        rotate: { duration: 0.3 } 
+                        rotate: { duration: 0.3 }
                     }}
                     className="flex items-center justify-center"
                 >
