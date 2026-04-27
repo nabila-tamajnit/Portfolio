@@ -99,7 +99,9 @@ export const Navbar = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="md:hidden text-white z-50 relative"
-                        aria-label="Toggle menu"
+                        aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                        aria-expanded={isOpen}
+                        aria-controls="mobile-menu"
                     >
                         <div className="flex flex-col gap-1.5 w-6">
                             <span
@@ -120,6 +122,9 @@ export const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
+                        id="mobile-menu"
+                        role="navigation"
+                        aria-label="Navigation mobile"
                         initial={{ y: '-100%' }}
                         animate={{ y: 0 }}
                         exit={{ y: '-100%' }}
