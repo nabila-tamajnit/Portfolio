@@ -38,6 +38,7 @@ export const SkillCard = ({ skill, index, totalSkills, isGridInView }) => {
       <img
         src={skill.icon}
         alt={skill.name}
+        loading="lazy"
         className={`w-8 h-8 lg:w-16 lg:h-16 mb-3 ${skill.invert ? "invert" : ""}`}
       />
       <p className="text-title text-center text-sm lg:text-lg">{skill.name}</p>

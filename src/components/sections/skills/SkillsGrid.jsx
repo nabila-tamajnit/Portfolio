@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { SkillCard } from "./SkillsCard"
+import { SkillCard } from "./SkillCard"
 
 export const SkillsGrid = ({ skills }) => {
   const gridRef = useRef(null)
