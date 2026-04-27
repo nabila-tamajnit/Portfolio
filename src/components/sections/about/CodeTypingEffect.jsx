@@ -1,27 +1,45 @@
 import { motion } from "framer-motion"
 
-export const CodeTypingEffect = ({ isVisible }) => {
-    const codeContent = [
-        { line: '<span class="text-purple-const">const</span> <span class="text-blue-const">nabila</span> = {', delay: 0 },
-        { line: '  <span class="text-red-const">role:</span> <span class="text-green-const">"Web Developer"</span>,', delay: 0.3 },
-        { line: '  <span class="text-red-const">passion:</span> <span class="text-green-const">"Coder"</span>,', delay: 0.6 },
-        { line: '  <span class="text-red-const">stack:</span> [<span class="text-green-const">"React", "Node.js", "MongoDB", "..."</span>],', delay: 0.9 },
-        { line: '  <span class="text-red-const">learning:</span> <span class="text-green-const">"Toujours plus..."</span>,', delay: 1.2 },
-        { line: '  <span class="text-red-const">disponible:</span> <span class="text-green-const">"Juin 2026"</span>', delay: 1.5 },
-        { line: '};', delay: 1.8 },
-        { line: '<span class="italic text-gray-500">// Prête à relever de nouveaux défis !</span>', delay: 2 }
-    ]
+// Composants de syntaxe highlighting
+const K = ({ children }) => (
+    <span className="text-purple-const">{children}</span>
+)
+const V = ({ children }) => (
+    <span className="text-blue-const">{children}</span>
+)
+const Prop = ({ children }) => (
+    <span className="text-red-const">{children}</span>
+)
+const Str = ({ children }) => (
+    <span className="text-green-const">{children}</span>
+)
+const Comment = ({ children }) => (
+    <span className="italic text-gray-500">{children}</span>
+)
 
+const codeLines = [
+    { id: 0, delay: 0,   content: <><K>const</K> <V>nabila</V> = {'{'}</> },
+    { id: 1, delay: 0.3, content: <>&nbsp;&nbsp;<Prop>role:</Prop> <Str>"Web Developer"</Str>,</> },
+    { id: 2, delay: 0.6, content: <>&nbsp;&nbsp;<Prop>passion:</Prop> <Str>"Coder"</Str>,</> },
+    { id: 3, delay: 0.9, content: <>&nbsp;&nbsp;<Prop>stack:</Prop> [<Str>"React", "Node.js", "MongoDB", "..."</Str>],</> },
+    { id: 4, delay: 1.2, content: <>&nbsp;&nbsp;<Prop>learning:</Prop> <Str>"Toujours plus..."</Str>,</> },
+    { id: 5, delay: 1.5, content: <>&nbsp;&nbsp;<Prop>disponible:</Prop> <Str>"Juin 2026"</Str></> },
+    { id: 6, delay: 1.8, content: <>{'}'}</> },
+    { id: 7, delay: 2.0, content: <Comment>// Prête à relever de nouveaux défis !</Comment> },
+]
+
+export const CodeTypingEffect = ({ isVisible }) => {
     return (
         <div>
-            {codeContent.map((item, index) => (
+            {codeLines.map((line) => (
                 <motion.p
-                    key={index}
+                    key={line.id}
                     initial={{ opacity: 0 }}
                     animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: item.delay, duration: 0.3 }}
-                    dangerouslySetInnerHTML={{ __html: item.line }}
-                />
+                    transition={{ delay: line.delay, duration: 0.3 }}
+                >
+                    {line.content}
+                </motion.p>
             ))}
         </div>
     )
