@@ -145,7 +145,7 @@ export const ProjectCard = ({ project, index }) => {
                                         onClick={() => setOpenDropdown(
                                             openDropdown === link.name ? null : link.name
                                         )}
-                                        className="group/link flex flex-col items-center gap-2"
+                                        className="group/link flex flex-col items-center gap-2 cursor-pointer"
                                     >
                                         <motion.img
                                             whileHover={{ scale: 1.1, rotate: 5 }}
