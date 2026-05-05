@@ -61,7 +61,7 @@ export const Hero = () => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
                         <p className="text-2xl text-purple-primary font-bold mb-2">
-                            Full-Stack JavaScript Developer
+                            Développeuse Full-Stack
                         </p>
                     </motion.div>
 
