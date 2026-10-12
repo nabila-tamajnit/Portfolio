@@ -1,7 +1,37 @@
 export const projects = [
-  {
+    {
     id: 1,
     number: '01',
+    title: 'La Maison des Femmes de Bruxelles',
+    description: "Site vitrine réalisé lors de mon stage pour le projet de la Maison des Femmes de Bruxelles, porté par le CHU Saint-Pierre. De la maquette Figma à l'intégration sous WordPress avec Elementor, le site présente les trois services réunis par le projet, ses chiffres clés et ses actualités, et met en avant les appels aux dons. Une attention particulière a été portée au responsive, à l'accessibilité et à la sécurité des visiteuses, avec un bouton de sortie rapide.",
+    image: '/assets/images/projects/maisondesfemmes.png',
+    video: '/assets/videos/projects/maisondesfemmes.mp4',
+    tags: [
+      {
+        name: 'Figma',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg'
+      },
+      {
+        name: 'WordPress',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg',
+        invert: true
+      },
+      {
+        name: 'Elementor',
+        icon: 'https://cdn.simpleicons.org/elementor'
+      }
+    ],
+    links: [
+      {
+        name: 'Site',
+        icon: '/assets/icons/projects/net.svg',
+        link: 'https://lamaisondesfemmesbxl.be/'
+      }
+    ]
+  },
+  {
+    id: 2,
+    number: '02',
     title: 'PetBuddy',
     description: "Une application full stack de suivi du bien-être et de la santé animale, avec carnet de santé, rappels intelligents et logs quotidiens d'humeur et d'activité. Côté backend : API REST Express/MongoDB avec architecture en couches stricte, authentification JWT et protections contre les accès non autorisés (IDOR). Côté frontend : React avec design system Tailwind v4 custom, calendrier interactif et intégration Cloudinary pour les photos d'animaux.",
     image: '/assets/images/projects/petbuddy.png',
@@ -57,8 +87,8 @@ export const projects = [
     ]
   },
   {
-    id: 2,
-    number: '02',
+    id: 3,
+    number: '03',
     title: 'BambooFlow',
     description: "Une application full stack de gestion de tâches et de productivité, avec timer Pomodoro intégré et authentification JWT. Côté backend : API REST Express/MongoDB avec middlewares d'authentification et de sécurité (Helmet, rate limiting, Argon2). Côté frontend : React avec gestion d'état Jotai, routing protégé et interface responsive pensée pour la productivité du quotidien.",
     image: '/assets/images/projects/bambooflow.png',
@@ -114,8 +144,8 @@ export const projects = [
     ]
   },
   {
-    id: 3,
-    number: '03',
+    id: 4,
+    number: '04',
     title: 'CineVerse',
     description: "Une plateforme immersive d'exploration cinématographique connectée à l'API TMDB. Elle permet de rechercher des films et séries en temps réel, de consulter des fiches détaillées via des modales animées, et propose une expérience utilisateur fluide avec des chargements optimisés et un design sombre élégant.",
     image: '/assets/images/projects/cineverse.png',
@@ -153,8 +183,8 @@ export const projects = [
     ]
   },
   {
-    id: 4,
-    number: '04',
+    id: 5,
+    number: '05',
     title: 'DevPath Junior',
     description: "Une plateforme interactive dédiée aux développeurs juniors préparant des entretiens techniques. Elle réunit des jeux d'entraînement, un simulateur d'entretien, une to-do list synchronisée et un générateur de Markdown, dans une interface responsive avec thème sombre et clair.",
     image: '/assets/images/projects/devpath.png',
