@@ -23,7 +23,7 @@ export const projects = [
     ],
     links: [
       {
-        name: 'Site',
+        name: 'Demo',
         icon: '/assets/icons/projects/net.svg',
         link: 'https://lamaisondesfemmesbxl.be/'
       }
