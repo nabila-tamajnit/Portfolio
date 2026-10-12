@@ -12,7 +12,7 @@ export const Footer = () => {
             </div>
 
             <div className="text-center text-sm text-title py-10">
-                <p>© 2026 Nabila - Développeuse web en fromation </p>
+                <p>© 2026 Nabila - Développeuse web FullStack </p>
                 <p>Conçu et développé avec soin</p>
             </div>
         </footer>

@@ -81,8 +81,7 @@ export const About = () => {
                         </p>
 
                         <p>
-                            Actuellement en formation chez <strong>Interface3</strong>, je souhaite intégrer un stage en développement web à partir de juin 2026 afin de mettre en pratique{' '}
-                            <strong>mes compétences</strong> au sein d'une équipe.
+                            Après avoir terminé ma formation chez <strong>Interface3</strong> et réalisé un stage en développement web au sein du CHU Saint-Pierre, je suis aujourd’hui à la recherche d’un poste de développeuse fullstack pour continuer à <strong>progresser</strong> et mettre <strong>mes compétences</strong> au service d’une équipe.
                         </p>
                     </motion.div>
                 </div>

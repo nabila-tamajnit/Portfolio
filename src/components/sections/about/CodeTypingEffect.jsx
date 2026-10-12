@@ -23,7 +23,7 @@ const codeLines = [
     { id: 2, delay: 0.6, content: <>&nbsp;&nbsp;<Prop>passion:</Prop> <Str>"Coder"</Str>,</> },
     { id: 3, delay: 0.9, content: <>&nbsp;&nbsp;<Prop>stack:</Prop> [<Str>"React", "Node.js", "MongoDB", "..."</Str>],</> },
     { id: 4, delay: 1.2, content: <>&nbsp;&nbsp;<Prop>learning:</Prop> <Str>"Toujours plus..."</Str>,</> },
-    { id: 5, delay: 1.5, content: <>&nbsp;&nbsp;<Prop>disponible:</Prop> <Str>"Juin 2026"</Str></> },
+    { id: 5, delay: 1.5, content: <>&nbsp;&nbsp;<Prop>disponible:</Prop> <Str>"Dès que possible"</Str></> },
     { id: 6, delay: 1.8, content: <>{'}'}</> },
     { id: 7, delay: 2.0, content: <Comment>// Prête à relever de nouveaux défis !</Comment> },
 ]
