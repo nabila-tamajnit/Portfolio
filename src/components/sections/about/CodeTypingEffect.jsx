@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 
 // Composants de syntaxe highlighting
 const K = ({ children }) => (

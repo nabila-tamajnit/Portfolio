@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence } from "motion/react"
 import { useState, useRef } from "react"
 import { projects } from "../../../data/projects"
 import { ProjectCard } from "./ProjectCard"

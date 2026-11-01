@@ -1,4 +1,4 @@
-import { motion, useInView, AnimatePresence } from "framer-motion"
+import { motion, useInView, AnimatePresence } from "motion/react"
 import { useRef, useState, useEffect } from "react"
 import { ArrowUpRight } from "lucide-react"
 import { useMediaQuery } from "../../../hooks/useMediaQuery"

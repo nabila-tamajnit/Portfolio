@@ -1,4 +1,3 @@
-import { motion } from "framer-motion"
 import { skills } from "../../../data/skills"
 import { SkillsGrid } from "./SkillsGrid"
 import { SectionHeader } from "../../ui/SectionHeader"

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { NavHashLink } from "react-router-hash-link"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "motion/react"
 
 
 const navLinks = [

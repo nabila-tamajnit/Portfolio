@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser';
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { SectionHeader } from "../../ui/SectionHeader"
 
 const containerVariants = {
@@ -67,6 +67,7 @@ export const Contact = () => {
       setFormData({ name: "", email: "", subject: "", message: "" });
 
     } catch (error) {
+      console.error("EmailJS send failed:", error);
       showAlertMessage("danger", "✗ Erreur lors de l'envoi. Veuillez réessayer.");
     } finally {
       setIsLoading(false);

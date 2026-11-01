@@ -34,7 +34,6 @@ export const useScrollNavigation = () => {
             requestAnimationFrame(() => {
                 const sections = document.querySelectorAll("section[id]")
                 let closestSection = null
-                let closestDistance = Infinity
 
                 sections.forEach((section) => {
                     const rect = section.getBoundingClientRect()
