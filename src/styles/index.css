@@ -39,6 +39,7 @@
   --color-sable: #E6CBB2;
   --color-bordure: #E2D3C2;
   --color-filet: #EADDCF;
+  --color-pastille: #F1E2D3;
   --color-ligne-champ: #9C7D5A;
 
   /* Text */
@@ -73,6 +74,7 @@
   --shadow-soft: 0 12px 26px -14px rgb(74 40 24 / 0.35);
   --shadow-lifted: 0 26px 50px -20px rgb(74 40 24 / 0.32);
   --shadow-brique: 0 14px 26px -12px rgb(122 47 28 / 0.55);
+  --shadow-card-brique: 0 16px 30px -12px rgb(122 47 28 / 0.45);
 }
 
 /* Page width: content max 1240px, side padding 22 / 36 / 40px
