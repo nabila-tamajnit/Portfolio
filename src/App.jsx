@@ -1,5 +1,6 @@
 import { Navbar } from "./components/layout/Navbar"
 import { About } from "./components/sections/about/About"
+import { Contact } from "./components/sections/contact/Contact"
 import { Dynamic } from "./components/sections/dynamic/Dynamic"
 import { Hero } from "./components/sections/hero/Hero"
 import { SocialBand } from "./components/sections/hero/SocialBand"
@@ -18,6 +19,7 @@ function App() {
                 <Dynamic />
                 <Projects />
                 <Tools />
+                <Contact />
             </main>
         </>
     )
