@@ -4,6 +4,7 @@ import { Dynamic } from "./components/sections/dynamic/Dynamic"
 import { Hero } from "./components/sections/hero/Hero"
 import { SocialBand } from "./components/sections/hero/SocialBand"
 import { Projects } from "./components/sections/projects/Projects"
+import { Tools } from "./components/sections/tools/Tools"
 
 // Redesigned sections are added here one by one.
 function App() {
@@ -16,6 +17,7 @@ function App() {
                 <About />
                 <Dynamic />
                 <Projects />
+                <Tools />
             </main>
         </>
     )
