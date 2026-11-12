@@ -1,164 +1,112 @@
-import { useState, useEffect } from "react"
-import { NavHashLink } from "react-router-hash-link"
-import { motion, AnimatePresence } from "motion/react"
+import { useEffect, useRef, useState } from "react"
+import { Logo } from "../ui/Logo"
+import { contactLink, navLinks } from "../../data/navigation"
 
+const MOBILE_MENU_ID = "mobile-menu"
 
-const navLinks = [
-    { name: 'Bienvenue', href: '#welcome' },
-    { name: 'À propos', href: '#about' },
-    { name: 'Compétences', href: '#skills' },
-    { name: 'Projets', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
-]
+const navLinkClasses = "transition-colors duration-200 hover:text-brique"
 
 export const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false)
-    const [activeSection, setActiveSection] = useState('#welcome')
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const menuButtonRef = useRef(null)
 
-    const toggleMenu = () => {
-        setIsOpen(prev => !prev)
-    }
+    const toggleMenu = () => setIsMenuOpen((isOpen) => !isOpen)
+    const closeMenu = () => setIsMenuOpen(false)
 
+    // Escape closes the mobile menu and gives focus back to the button that opened it
     useEffect(() => {
-        const handleScroll = () => {
-            const sections = navLinks.map(link => link.href.substring(1))
+        if (!isMenuOpen) return
 
-            for (const sectionId of sections) {
-                const element = document.getElementById(sectionId)
-                if (element) {
-                    const rect = element.getBoundingClientRect()
-                    if (rect.top <= 100 && rect.bottom >= 100) {
-                        setActiveSection(`#${sectionId}`)
-                        break
-                    }
-                }
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setIsMenuOpen(false)
+                menuButtonRef.current?.focus()
             }
         }
 
-        window.addEventListener('scroll', handleScroll)
-        // window.history.replaceState(null, null, window.location.pathname);
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
-
+        document.addEventListener("keydown", handleKeyDown)
+        return () => document.removeEventListener("keydown", handleKeyDown)
+    }, [isMenuOpen])
 
     return (
-        <>
-            {/* =========== NAVBAR ===========*/}
-            <motion.nav
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="fixed top-0 w-full z-50 bg-bg-main border-b border-purple-accent/10"
-            >
-                <div className="max-w-7xl 2xl:max-w-400 mx-auto px-6 lg:px-12 py-2 flex justify-between items-center">
+        <header>
+            <div className="page-container flex items-center justify-between py-[18px] md:py-6 lg:py-[30px]">
+                <a href="#accueil" className="flex items-center gap-2.5 lg:gap-3">
+                    <Logo className="h-9 w-[30px] md:h-[41px] md:w-[34px] lg:h-12 lg:w-10" />
+                    <span className="font-serif text-[22px] font-medium md:text-[24px] lg:text-[26px] lg:tracking-[0.5px]">
+                        Nabila Tamajnit
+                    </span>
+                </a>
 
-                    {/* ----- LOGO ----- */}
-                    <motion.a
-                        href="#welcome"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="flex items-end"
+                {/* Tablet and desktop navigation */}
+                <nav
+                    aria-label="Navigation principale"
+                    className="hidden items-center gap-6 text-[12px] font-medium uppercase tracking-[1.8px] md:flex lg:gap-9 lg:text-[13px] lg:tracking-[2px]"
+                >
+                    {navLinks.map((link) => (
+                        <a key={link.href} href={link.href} className={navLinkClasses}>
+                            {link.label}
+                        </a>
+                    ))}
+                    <a
+                        href={contactLink.href}
+                        className="rounded-full border border-brun px-[18px] py-[11px] transition-colors duration-200 hover:border-brique hover:text-brique lg:px-[22px] lg:py-3"
                     >
-                        <img
-                            src="assets/brand/logo.svg"
-                            height="30"
-                            width="30"
-                            alt="Logo Nabila"
-                            className="lg:h-9 lg:w-9 hover:scale-110 transition-transform"
-                        />
-                    </motion.a>
+                        {contactLink.label}
+                    </a>
+                </nav>
 
-                    {/* ----- LIENS DESKTOP ----- */}
-                    <ul className="hidden md:flex gap-8">
-                        {navLinks.map((link, index) => (
-                            <motion.li
-                                key={link.href}
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.1 * index }}
-                            >
-                                <NavHashLink
-                                    smooth
-                                    to={link.href}
-                                    className={`relative text-sm uppercase font-medium font-link tracking-wider transition-colors duration-300 group ${activeSection === link.href ? 'text-purple-hover' : 'text-text-main hover:text-purple-hover'}`}
-                                >
-                                    {link.name}
-                                    <span
-                                        className={` absolute -bottom-1 left-0 h-0.5 bg-purple-accent transition-all duration-300 ease-out ${activeSection === link.href ? 'w-full' : 'w-0 group-hover:w-full'} `}
-                                    />
-                                </NavHashLink>
-                            </motion.li>
-                        ))}
-                    </ul>
-
-                    {/* ----- BOUTON BURGER ----- */}
-                    <motion.button
-                        onClick={toggleMenu}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="md:hidden text-white z-50 relative"
-                        aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
-                        aria-expanded={isOpen}
-                        aria-controls="mobile-menu"
+                {/* Mobile menu button */}
+                <button
+                    ref={menuButtonRef}
+                    type="button"
+                    aria-label="Menu"
+                    aria-expanded={isMenuOpen}
+                    aria-controls={MOBILE_MENU_ID}
+                    onClick={toggleMenu}
+                    className="flex size-[46px] cursor-pointer items-center justify-center rounded-full border border-brun transition-colors duration-200 hover:border-brique hover:text-brique md:hidden"
+                >
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        aria-hidden="true"
                     >
-                        <div className="flex flex-col gap-1.5 w-6">
-                            <span
-                                className={`w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-2' : ''}`}
-                            />
-                            <span
-                                className={`w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : ''}`}
-                            />
-                            <span
-                                className={`w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}
-                            />
-                        </div>
-                    </motion.button>
-                </div>
-            </motion.nav>
+                        <path d={isMenuOpen ? "M6 6l12 12M18 6L6 18" : "M4 8h16M4 16h16"} />
+                    </svg>
+                </button>
+            </div>
 
-            {/* ========== MENU MOBILE ========== */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        id="mobile-menu"
-                        role="navigation"
-                        aria-label="Navigation mobile"
-                        initial={{ y: '-100%' }}
-                        animate={{ y: 0 }}
-                        exit={{ y: '-100%' }}
-                        transition={{ type: 'tween', duration: 0.6 }}
-                        className="md:hidden fixed w-full bg-bg-main z-40"
+            {/* Mobile menu: pushes the page content down, as in the mockup */}
+            {isMenuOpen && (
+                <nav
+                    id={MOBILE_MENU_ID}
+                    aria-label="Navigation principale"
+                    className="mx-3.5 mb-2.5 flex flex-col rounded-[22px] border border-bordure bg-creme px-6 pb-6 pt-[18px] shadow-[0_20px_40px_-24px_rgb(74_40_24/0.35)] md:hidden"
+                >
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.href}
+                            href={link.href}
+                            onClick={closeMenu}
+                            className={`border-b border-filet py-3.5 font-serif text-[28px] ${navLinkClasses}`}
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+                    <a
+                        href={contactLink.href}
+                        onClick={closeMenu}
+                        className="mt-5 rounded-full bg-brique py-[15px] text-center text-[14px] font-semibold uppercase tracking-[1.5px] text-sur-brique transition-colors duration-200 hover:bg-brique-fonce"
                     >
-                        <div className="flex items-center justify-center py-20">
-                            <ul className="flex flex-col items-center gap-10">
-                                {navLinks.map((link, index) => (
-                                    <motion.li
-                                        key={link.href}
-                                        initial={{ opacity: 0, x: 50 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: 50 }}
-                                        transition={{
-                                            duration: 0.4,
-                                            delay: index * 0.08
-                                        }}
-                                    >
-                                        <NavHashLink
-                                            smooth
-                                            to={link.href}
-                                            onClick={toggleMenu}
-                                            className={` font-medium uppercase font-link tracking-wider transition-colors duration-300 ${activeSection === link.href ? 'text-purple-hover' : 'text-title hover:text-purple-hover'} `}
-                                        >
-                                            {link.name}
-                                        </NavHashLink>
-                                    </motion.li>
-                                ))}
-                            </ul>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </>
+                        {contactLink.label}
+                    </a>
+                </nav>
+            )}
+        </header>
     )
 }

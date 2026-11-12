@@ -7,14 +7,18 @@ const leaves = [
     { d: "M46 52 q -18 -6 -28 6 q 16 8 28 -6z", light: true },
 ]
 
+const topLeaf = "M34 26 q 10 -10 22 -6 q -10 10 -22 6z"
+
 // Olive branch with alternating olive / light olive leaves. Size and position come from `className`.
-export const OliveBranch = ({ className = "" }) => {
+// The small top leaf only appears on some layouts: `topLeafClassName` controls it (e.g. "hidden lg:block").
+export const OliveBranch = ({ topLeafClassName = "hidden", className = "" }) => {
     return (
         <svg viewBox="0 0 190 260" fill="none" aria-hidden="true" className={className}>
             <path d="M150 255 C 120 200, 90 140, 30 20" className="stroke-olive-fonce" strokeWidth="2" />
             {leaves.map((leaf) => (
                 <path key={leaf.d} d={leaf.d} className={leaf.light ? "fill-olive-clair" : "fill-olive"} />
             ))}
+            <path d={topLeaf} className={`fill-olive ${topLeafClassName}`} />
         </svg>
     )
 }

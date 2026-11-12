@@ -16,7 +16,7 @@ export const Button = ({
     children,
     ...props
 }) => {
-    const classes = `inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-full text-[15px] font-medium no-underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brique disabled:cursor-not-allowed disabled:opacity-60 ${variants[variant]} ${className}`
+    const classes = `inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-full text-[15px] font-medium no-underline transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-60 ${variants[variant]} ${className}`
 
     const content = (
         <>
