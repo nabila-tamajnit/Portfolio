@@ -1,3 +1,4 @@
+import { Footer } from "./components/layout/Footer"
 import { Navbar } from "./components/layout/Navbar"
 import { About } from "./components/sections/about/About"
 import { Contact } from "./components/sections/contact/Contact"
@@ -7,7 +8,6 @@ import { SocialBand } from "./components/sections/hero/SocialBand"
 import { Projects } from "./components/sections/projects/Projects"
 import { Tools } from "./components/sections/tools/Tools"
 
-// Redesigned sections are added here one by one.
 function App() {
     return (
         <>
@@ -21,6 +21,7 @@ function App() {
                 <Tools />
                 <Contact />
             </main>
+            <Footer />
         </>
     )
 }
