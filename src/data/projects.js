@@ -7,7 +7,8 @@
 // - codeLinks: [] when the code is private; one link shows "Explorer le code",
 //   several links show one "Code <label>" link each
 // - images: put the files in public/images/projects/<slug>/
-//   desktop 1440 × 900, mobile 390 × 844 (or null to reuse the desktop image), thumbnail 480 × 330
+//   desktop 1440 × 900, mobile 390 × 844 (or null to reuse the desktop image), thumbnail 480 × 330,
+//   optional desktopFull / mobileFull: full-page captures that scroll when the device is hovered
 
 const imagePath = (slug, name) => `/images/projects/${slug}/${name}.webp`
 
@@ -119,6 +120,8 @@ export const projects = [
             desktop: imagePath("portfolio-v1", "desktop"),
             mobile: imagePath("portfolio-v1", "mobile"),
             thumbnail: imagePath("portfolio-v1", "thumbnail"),
+            desktopFull: imagePath("portfolio-v1", "desktop-full"),
+            mobileFull: imagePath("portfolio-v1", "mobile-full"),
         },
     },
 ]

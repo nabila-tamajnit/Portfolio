@@ -1,5 +1,6 @@
 import { Eyebrow } from "../../ui/Eyebrow"
 import { Pill } from "../../ui/Pill"
+import { Reveal } from "../../ui/Reveal"
 import { PortraitArch } from "./PortraitArch"
 
 const qualities = ["Curiosité", "Autonomie", "Créativité", "Sens du détail"]
@@ -13,18 +14,20 @@ export const About = () => {
             id="apropos"
             className="page-container py-20 md:grid md:grid-cols-[330px_minmax(0,1fr)] md:grid-rows-[auto_auto] md:gap-x-11 md:pb-[100px] md:pt-[70px] lg:grid-cols-[calc(50%-88px)_minmax(0,1fr)] lg:gap-x-24 lg:pb-[130px] lg:pt-[100px]"
         >
-            <div className="md:col-start-2 md:self-end">
+            <Reveal className="md:col-start-2 md:self-end">
                 <Eyebrow number="01" className="mb-[18px] lg:mb-6">
                     À propos
                 </Eyebrow>
                 <h2 className="mb-7 font-serif text-[48px] leading-none tracking-[-1px] md:mb-[18px] md:text-[52px] lg:mb-[22px] lg:text-[72px]">
                     Moi, c'est <em className="text-brique">Nabila.</em>
                 </h2>
-            </div>
+            </Reveal>
 
-            <PortraitArch className="mb-[34px] md:col-start-1 md:row-span-2 md:row-start-1 md:mb-0 md:self-center" />
+            <Reveal distance={40} className="mb-[34px] md:col-start-1 md:row-span-2 md:row-start-1 md:mb-0 md:self-center">
+                <PortraitArch />
+            </Reveal>
 
-            <div className="md:col-start-2 md:self-start">
+            <Reveal delay={0.15} className="md:col-start-2 md:self-start">
                 <p className="mb-5 font-serif text-[23px] leading-[1.3] md:mb-[18px] md:text-[22px] lg:mb-[26px] lg:max-w-[520px] lg:text-[27px]">
                     Je suis développeuse Full-Stack JavaScript, avec un goût particulier pour les interfaces soignées et
                     les projets bien pensés.
@@ -56,7 +59,7 @@ export const About = () => {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </Reveal>
         </section>
     )
 }

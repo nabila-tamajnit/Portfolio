@@ -1,12 +1,15 @@
 import { useRef, useState } from "react"
+import * as m from "motion/react-m"
 import { Eyebrow } from "../../ui/Eyebrow"
 import { LeafSprig } from "../../ui/motifs/LeafSprig"
+import { Reveal } from "../../ui/Reveal"
 import { CarouselControls } from "./CarouselControls"
 import { DeviceShowcase } from "./DeviceShowcase"
 import { ProjectDetails } from "./ProjectDetails"
 import { ProjectGrid } from "./ProjectGrid"
 import { projects } from "../../../data/projects"
 import { formatNumber } from "../../../utils/formatNumber"
+import { revealOnScroll } from "../../../utils/motion"
 
 export const Projects = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -39,7 +42,7 @@ export const Projects = () => {
 
             <div className="page-container relative">
                 {/* Header */}
-                <div className="flex items-end justify-between gap-6 lg:mb-16">
+                <Reveal className="flex items-end justify-between gap-6 lg:mb-16">
                     <div>
                         <Eyebrow number="02" className="mb-[18px] lg:mb-6">
                             Projets sélectionnés
@@ -57,10 +60,10 @@ export const Projects = () => {
                         </p>
                     </div>
                     <CarouselControls {...controlsProps} className="hidden flex-none items-center gap-3.5 md:flex lg:gap-[18px]" />
-                </div>
+                </Reveal>
 
                 {/* Current project */}
-                <div ref={showcaseRef} className="lg:flex lg:items-center lg:gap-14">
+                <m.div ref={showcaseRef} {...revealOnScroll(0.1, 32)} className="lg:flex lg:items-center lg:gap-14">
                     <DeviceShowcase project={currentProject} className="mt-9 md:mt-11 lg:mt-0 lg:flex-[1.4_1_560px]" />
                     <CarouselControls {...controlsProps} className="mt-[26px] flex items-center justify-between md:hidden" />
                     <ProjectDetails
@@ -68,7 +71,7 @@ export const Projects = () => {
                         index={currentIndex}
                         className="mt-[22px] md:mt-10 lg:order-first lg:mt-0 lg:min-w-0 lg:flex-[1_1_380px]"
                     />
-                </div>
+                </m.div>
 
                 {/* Announces the change to screen reader users */}
                 <p className="sr-only" aria-live="polite">
@@ -76,7 +79,7 @@ export const Projects = () => {
                 </p>
 
                 {/* All projects */}
-                <div className="mb-[18px] mt-[52px] flex items-center gap-4 md:mb-[22px] md:mt-[60px] lg:mb-[30px] lg:mt-24 lg:gap-[22px]">
+                <Reveal className="mb-[18px] mt-[52px] flex items-center gap-4 md:mb-[22px] md:mt-[60px] lg:mb-[30px] lg:mt-24 lg:gap-[22px]">
                     <h3 className="text-[10.5px] font-semibold uppercase tracking-[2.6px] text-olive md:text-[11px] md:tracking-[2.8px] lg:text-[12px] lg:tracking-[3.5px]">
                         Tous les projets
                     </h3>
@@ -84,9 +87,11 @@ export const Projects = () => {
                     <span aria-hidden="true" className="text-[11px] text-texte-doux md:hidden">
                         Faites glisser →
                     </span>
-                </div>
+                </Reveal>
 
-                <ProjectGrid projects={projects} currentIndex={currentIndex} onSelect={selectProject} />
+                <Reveal delay={0.1}>
+                    <ProjectGrid projects={projects} currentIndex={currentIndex} onSelect={selectProject} />
+                </Reveal>
             </div>
         </section>
     )

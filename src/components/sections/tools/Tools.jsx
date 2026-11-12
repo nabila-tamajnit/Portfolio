@@ -1,5 +1,6 @@
 import { Eyebrow } from "../../ui/Eyebrow"
 import { LeafSprig } from "../../ui/motifs/LeafSprig"
+import { Reveal } from "../../ui/Reveal"
 import { ToolGroup } from "./ToolGroup"
 import { toolGroups } from "../../../data/tools"
 
@@ -12,7 +13,7 @@ export const Tools = () => {
         >
             <LeafSprig outline className="absolute right-[30px] top-[70px] hidden h-[240px] w-[130px] rotate-16 lg:block" />
 
-            <div className="relative mb-[34px] md:mb-10 lg:mb-[60px]">
+            <Reveal className="relative mb-[34px] md:mb-10 lg:mb-[60px]">
                 <Eyebrow number="03" className="mb-[18px] lg:mb-6">
                     Outils et technologies
                 </Eyebrow>
@@ -27,7 +28,7 @@ export const Tools = () => {
                     Des technologies que je pratique au quotidien, d'autres que j'approfondis, et de nouvelles pistes que
                     j'explore pour continuer à progresser.
                 </p>
-            </div>
+            </Reveal>
 
             <ul className="relative border-t border-trait">
                 {toolGroups.map((group, index) => (

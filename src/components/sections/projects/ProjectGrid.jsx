@@ -13,6 +13,13 @@ const collapsedClasses = (index) => {
     return ""
 }
 
+// After "Voir plus", only the cards that were hidden fade in (tablet: from the 4th, desktop: from the 6th).
+const revealedClasses = (index) => {
+    if (index >= 5) return "motion-safe:md:animate-fade-up"
+    if (index >= 3) return "motion-safe:md:max-lg:animate-fade-up"
+    return ""
+}
+
 // "Voir plus" is only useful when a row is full: tablet from 4 projects, desktop from 6.
 const toggleVisibility = (count) => {
     if (count > 5) return "md:flex"
@@ -32,7 +39,7 @@ export const ProjectGrid = ({ projects, currentIndex, onSelect }) => {
                 {projects.map((project, index) => (
                     <li
                         key={project.slug}
-                        className={`w-[200px] flex-none snap-start md:w-auto ${isExpanded ? "" : collapsedClasses(index)}`}
+                        className={`w-[200px] flex-none snap-start md:w-auto ${isExpanded ? revealedClasses(index) : collapsedClasses(index)}`}
                     >
                         <ProjectCard
                             project={project}

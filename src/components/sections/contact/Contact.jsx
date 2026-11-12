@@ -1,5 +1,6 @@
 import { Eyebrow } from "../../ui/Eyebrow"
 import { OliveBranch } from "../../ui/motifs/OliveBranch"
+import { Reveal } from "../../ui/Reveal"
 import { ContactArch } from "./ContactArch"
 import { ContactForm } from "./ContactForm"
 
@@ -12,14 +13,16 @@ export const Contact = () => {
         >
             <OliveBranch className="absolute -left-11 bottom-[70px] hidden h-[240px] w-[150px] -rotate-12 lg:block" />
 
-            <Eyebrow number="04" className="mx-2 mb-5 md:mx-0 md:mb-[22px] lg:mb-7">
-                Contact
-            </Eyebrow>
+            <Reveal>
+                <Eyebrow number="04" className="mx-2 mb-5 md:mx-0 md:mb-[22px] lg:mb-7">
+                    Contact
+                </Eyebrow>
+            </Reveal>
 
-            <div className="relative overflow-hidden rounded-3xl border border-bordure bg-creme p-3.5 shadow-[0_30px_60px_-30px_rgb(74_40_24/0.28)] md:grid md:grid-cols-[330px_minmax(0,1fr)] md:gap-[18px] md:rounded-[26px] md:p-[18px] lg:flex lg:flex-wrap lg:gap-6 lg:rounded-[28px] lg:p-6 lg:shadow-[0_2px_6px_rgb(74_40_24/0.05),0_30px_60px_-30px_rgb(74_40_24/0.28)]">
+            <Reveal delay={0.1} distance={32} className="relative overflow-hidden rounded-3xl border border-bordure bg-creme p-3.5 shadow-[0_30px_60px_-30px_rgb(74_40_24/0.28)] md:grid md:grid-cols-[330px_minmax(0,1fr)] md:gap-[18px] md:rounded-[26px] md:p-[18px] lg:flex lg:flex-wrap lg:gap-6 lg:rounded-[28px] lg:p-6 lg:shadow-[0_2px_6px_rgb(74_40_24/0.05),0_30px_60px_-30px_rgb(74_40_24/0.28)]">
                 <ContactArch className="lg:max-w-full lg:min-w-0 lg:flex-[0_1_440px]" />
                 <ContactForm className="lg:min-w-0 lg:flex-[1_1_480px]" />
-            </div>
+            </Reveal>
         </section>
     )
 }

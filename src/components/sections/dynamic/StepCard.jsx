@@ -1,15 +1,19 @@
+import * as m from "motion/react-m"
 import { Star } from "../../ui/motifs/Star"
+import { revealOnScroll } from "../../../utils/motion"
 
 // Background of the light arches, from the lightest to the darkest.
 const lightBackgrounds = ["bg-creme", "bg-terracotta-1", "bg-terracotta-2"]
 
 // One arch of "Ma dynamique". The last step is highlighted in brick with an inner outline.
 // `className` carries the vertical offset that makes the arches rise.
+// The arches appear one after the other (delay based on their position).
 export const StepCard = ({ step, index, isLast, className = "" }) => {
     const background = isLast ? "border-brique bg-brique" : `border-contour ${lightBackgrounds[Math.min(index, 2)]}`
 
     return (
-        <li
+        <m.li
+            {...revealOnScroll(index * 0.12, 40)}
             className={`relative flex flex-col items-center rounded-t-[160px] rounded-b-[18px] border px-[26px] pb-[30px] pt-[62px] text-center shadow-[0_20px_38px_-18px_rgb(74_40_24/0.3)] md:rounded-t-full md:pb-8 md:pt-[74px] lg:pb-9 lg:pt-[84px] lg:shadow-[0_1px_3px_rgb(74_40_24/0.06),0_20px_38px_-18px_rgb(74_40_24/0.3)] ${background} ${className}`}
         >
             {isLast && (
@@ -48,6 +52,6 @@ export const StepCard = ({ step, index, isLast, className = "" }) => {
             >
                 {step.text}
             </p>
-        </li>
+        </m.li>
     )
 }

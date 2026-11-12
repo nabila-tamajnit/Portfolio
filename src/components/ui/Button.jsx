@@ -16,12 +16,19 @@ export const Button = ({
     children,
     ...props
 }) => {
-    const classes = `inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-full text-[15px] font-medium no-underline transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-60 ${variants[variant]} ${className}`
+    const classes = `group inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-full text-[15px] font-medium no-underline transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-60 ${variants[variant]} ${className}`
 
     const content = (
         <>
             {children}
-            {withArrow && <ArrowRight size={16} strokeWidth={1.6} aria-hidden="true" />}
+            {withArrow && (
+                <ArrowRight
+                    size={16}
+                    strokeWidth={1.6}
+                    aria-hidden="true"
+                    className="transition-transform duration-300 motion-safe:group-hover:translate-x-1"
+                />
+            )}
         </>
     )
 

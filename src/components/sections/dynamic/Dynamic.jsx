@@ -1,5 +1,6 @@
 import { Eyebrow } from "../../ui/Eyebrow"
 import { LeafSprig } from "../../ui/motifs/LeafSprig"
+import { Reveal } from "../../ui/Reveal"
 import { RisingPath } from "./RisingPath"
 import { StepCard } from "./StepCard"
 import { steps } from "../../../data/steps"
@@ -21,16 +22,18 @@ export const Dynamic = () => {
             />
 
             <div className="page-container relative">
-                <Eyebrow tone="brique" className="mb-[18px] lg:mb-[26px]">
-                    Ma dynamique
-                </Eyebrow>
-                <h2
-                    id="dynamique-title"
-                    className="mb-12 font-serif text-[44px] leading-none tracking-[-1px] md:mb-16 md:text-[54px] md:leading-[0.98] lg:mb-[84px] lg:text-[76px] lg:tracking-[-1.5px]"
-                >
-                    Ma façon de faire <br className="hidden md:inline" />
-                    avancer les <em className="text-brique">idées.</em>
-                </h2>
+                <Reveal>
+                    <Eyebrow tone="brique" className="mb-[18px] lg:mb-[26px]">
+                        Ma dynamique
+                    </Eyebrow>
+                    <h2
+                        id="dynamique-title"
+                        className="mb-12 font-serif text-[44px] leading-none tracking-[-1px] md:mb-16 md:text-[54px] md:leading-[0.98] lg:mb-[84px] lg:text-[76px] lg:tracking-[-1.5px]"
+                    >
+                        Ma façon de faire <br className="hidden md:inline" />
+                        avancer les <em className="text-brique">idées.</em>
+                    </h2>
+                </Reveal>
 
                 <div className="relative">
                     <RisingPath />

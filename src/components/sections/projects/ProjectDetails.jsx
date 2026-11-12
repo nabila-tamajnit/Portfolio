@@ -1,14 +1,23 @@
+import * as m from "motion/react-m"
 import { formatNumber } from "../../../utils/formatNumber"
+import { EASE_OUT } from "../../../utils/motion"
 
 const externalLinkProps = { target: "_blank", rel: "noopener noreferrer" }
 
 // Text of the current project: number, kind, title, description, tags and links.
 // Mobile: one column without the big number. Tablet: two columns. Desktop: one column next to the devices.
+// `key={project.slug}` makes React create a new block for each project, so the fade-in replays on every change.
 export const ProjectDetails = ({ project, index, className = "" }) => {
     const { title, kind, description, tags, liveUrl, codeLinks } = project
 
     return (
-        <div className={`md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:gap-9 lg:block ${className}`}>
+        <m.div
+            key={project.slug}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: EASE_OUT }}
+            className={`md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:gap-9 lg:block ${className}`}
+        >
             <div>
                 <p aria-hidden="true" className="hidden font-serif text-[64px] italic leading-none text-brique md:block lg:text-[80px]">
                     {formatNumber(index + 1)}
@@ -60,6 +69,6 @@ export const ProjectDetails = ({ project, index, className = "" }) => {
                     ))}
                 </div>
             </div>
-        </div>
+        </m.div>
     )
 }

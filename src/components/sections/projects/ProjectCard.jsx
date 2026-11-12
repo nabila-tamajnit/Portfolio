@@ -17,7 +17,7 @@ export const ProjectCard = ({ project, isSelected, onSelect }) => {
                     alt=""
                     loading="lazy"
                     decoding="async"
-                    className="size-full object-cover object-top brightness-103 saturate-82 sepia-28"
+                    className="size-full object-cover object-top brightness-103 saturate-82 sepia-28 transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.04]"
                 />
                 {/* Warm veil that blends the screenshots into the palette */}
                 <span aria-hidden="true" className="absolute inset-0 bg-voile opacity-[0.38] mix-blend-multiply" />

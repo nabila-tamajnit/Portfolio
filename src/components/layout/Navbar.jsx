@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react"
+import { AnimatePresence } from "motion/react"
+import * as m from "motion/react-m"
 import { Logo } from "../ui/Logo"
+import { EASE_OUT, revealOnLoad } from "../../utils/motion"
 import { contactLink, navLinks } from "../../data/navigation"
 
 const MOBILE_MENU_ID = "mobile-menu"
@@ -30,7 +33,7 @@ export const Navbar = () => {
 
     return (
         <header>
-            <div className="page-container flex items-center justify-between py-[18px] md:py-6 lg:py-[30px]">
+            <m.div {...revealOnLoad(0, -12)} className="page-container flex items-center justify-between py-[18px] md:py-6 lg:py-[30px]">
                 <a href="#accueil" className="flex items-center gap-2.5 lg:gap-3">
                     <Logo className="h-9 w-[30px] md:h-[41px] md:w-[34px] lg:h-12 lg:w-10" />
                     <span className="font-serif text-[22px] font-medium md:text-[24px] lg:text-[26px] lg:tracking-[0.5px]">
@@ -79,34 +82,40 @@ export const Navbar = () => {
                         <path d={isMenuOpen ? "M6 6l12 12M18 6L6 18" : "M4 8h16M4 16h16"} />
                     </svg>
                 </button>
-            </div>
+            </m.div>
 
             {/* Mobile menu: pushes the page content down, as in the mockup */}
-            {isMenuOpen && (
-                <nav
-                    id={MOBILE_MENU_ID}
-                    aria-label="Navigation principale"
-                    className="mx-3.5 mb-2.5 flex flex-col rounded-[22px] border border-bordure bg-creme px-6 pb-6 pt-[18px] shadow-[0_20px_40px_-24px_rgb(74_40_24/0.35)] md:hidden"
-                >
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.href}
-                            href={link.href}
-                            onClick={closeMenu}
-                            className={`border-b border-filet py-3.5 font-serif text-[28px] ${navLinkClasses}`}
-                        >
-                            {link.label}
-                        </a>
-                    ))}
-                    <a
-                        href={contactLink.href}
-                        onClick={closeMenu}
-                        className="mt-5 rounded-full bg-brique py-[15px] text-center text-[14px] font-semibold uppercase tracking-[1.5px] text-sur-brique transition-colors duration-200 hover:bg-brique-fonce"
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <m.nav
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.25, ease: EASE_OUT }}
+                        id={MOBILE_MENU_ID}
+                        aria-label="Navigation principale"
+                        className="mx-3.5 mb-2.5 flex flex-col rounded-[22px] border border-bordure bg-creme px-6 pb-6 pt-[18px] shadow-[0_20px_40px_-24px_rgb(74_40_24/0.35)] md:hidden"
                     >
-                        {contactLink.label}
-                    </a>
-                </nav>
-            )}
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                onClick={closeMenu}
+                                className={`border-b border-filet py-3.5 font-serif text-[28px] ${navLinkClasses}`}
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                        <a
+                            href={contactLink.href}
+                            onClick={closeMenu}
+                            className="mt-5 rounded-full bg-brique py-[15px] text-center text-[14px] font-semibold uppercase tracking-[1.5px] text-sur-brique transition-colors duration-200 hover:bg-brique-fonce"
+                        >
+                            {contactLink.label}
+                        </a>
+                    </m.nav>
+                )}
+            </AnimatePresence>
         </header>
     )
 }
