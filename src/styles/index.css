@@ -41,6 +41,14 @@
   --color-filet: #EADDCF;
   --color-pastille: #F1E2D3;
   --color-contour: #E2C4A8;
+
+  /* Project showcase: blob behind the devices, device frames, screens and card thumbnails */
+  --color-argile: #E2CDB4;
+  --color-appareil: #2B2522;
+  --color-appareil-socle: #D6CCC2;
+  --color-ecran: #E9D2B8;
+  --color-vignette: #E9D9C6;
+  --color-voile: #E8D3B9;
   --color-ligne-champ: #9C7D5A;
 
   /* Text */
