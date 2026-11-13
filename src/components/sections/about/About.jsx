@@ -1,188 +1,65 @@
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
-import { TimelineItem } from "./TimelineItem"
-import { CodeTypingEffect } from "./CodeTypingEffect"
+import { Eyebrow } from "../../ui/Eyebrow"
+import { Pill } from "../../ui/Pill"
+import { Reveal } from "../../ui/Reveal"
+import { PortraitArch } from "./PortraitArch"
 
+const qualities = ["Curiosité", "Autonomie", "Créativité", "Sens du détail"]
+
+// Layout: on mobile the portrait sits between the title and the text.
+// From tablet up, a 2-column grid puts the portrait on the left (spanning both rows)
+// and keeps the title block and the text block together, centred against the portrait.
 export const About = () => {
-    const myStrengths = [
-        { name: 'Motivée' },
-        { name: 'Autonome' },
-        { name: 'Sens du détail' },
-        { name: 'Curieuse' }
-    ]
-
-    const progress = [
-        { name: 'Explorer', description: "Découvrir les fondamentaux du développement web" },
-        { name: 'Construire', description: "Donner vie à mes premières idées à travers des projets" },
-        { name: 'Approfondir', description: "Affiner mon code et développer de bonnes pratiques" },
-        { name: 'M\'engager', description: "Rejoindre une équipe et évoluer dans un cadre professionnel" }
-    ]
-
-
-    const lineRef1 = useRef(null)
-    const titleRef = useRef(null)
-    const textRef = useRef(null)
-    const lineRef2 = useRef(null)
-    const codeRef = useRef(null)
-
-    const isLineVisible1 = useInView(lineRef1, { once: false, amount: 0.5 })
-    const isTitleVisible = useInView(titleRef, { once: false, amount: 0.5 })
-    const isTextVisible = useInView(textRef, { once: false, amount: 0.3 })
-    const isLineVisible2 = useInView(lineRef2, { once: false, amount: 0.5 })
-    const isCodeVisible = useInView(codeRef, { once: false, amount: 0.3 })
-
     return (
         <section
-            id="about"
-            className="relative z-20 w-full py-16 sm:py-24 pt-24 sm:pt-32 px-6 lg:px-12 bg-bg-main bg-[radial-gradient(circle_at_top_right,#4C6FFF_0%,transparent_10%),radial-gradient(circle_at_top_right,#5F35D5_0%,transparent_3%)] sm:bg-[radial-gradient(circle_at_top_right,#4C6FFF_0%,transparent_25%),radial-gradient(circle_at_top_right,#5F35D5_0%,transparent_15%)]"
+            id="apropos"
+            className="page-container py-20 md:grid md:grid-cols-[330px_minmax(0,1fr)] md:grid-rows-[auto_auto] md:gap-x-11 md:pb-[100px] md:pt-[70px] lg:grid-cols-[calc(50%-88px)_minmax(0,1fr)] lg:gap-x-24 lg:pb-[130px] lg:pt-[100px]"
         >
-            <div className="relative z-10 max-w-7xl mx-auto">
+            <Reveal className="md:col-start-2 md:self-end">
+                <Eyebrow number="01" className="mb-[18px] lg:mb-6">
+                    À propos
+                </Eyebrow>
+                <h2 className="mb-7 font-serif text-[48px] leading-none tracking-[-1px] md:mb-[18px] md:text-[52px] lg:mb-[22px] lg:text-[72px]">
+                    Moi, c'est <em className="text-brique">Nabila.</em>
+                </h2>
+            </Reveal>
 
-                {/* ========== À PROPOS ========== */}
-                <div className="lg:w-3/4">
+            <Reveal distance={72} className="mb-[34px] md:col-start-1 md:row-span-2 md:row-start-1 md:mb-0 md:self-center">
+                <PortraitArch />
+            </Reveal>
 
-                    {/* ----- Ligne ----- */}
-                    <div ref={lineRef1} className="flex items-center mb-8 overflow-hidden">
-                        <motion.div
-                            initial={{ scaleX: 0 }}
-                            animate={isLineVisible1 ? { scaleX: 1 } : { scaleX: 0 }}
-                            transition={{ duration: 1.2, ease: "easeOut" }}
-                            className="h-0.5 bg-gradient-to-r from-purple-accent to-bg-main/0 flex-1 origin-left"
-                        />
-                    </div>
+            <Reveal delay={0.15} className="md:col-start-2 md:self-start">
+                <p className="mb-5 font-serif text-[23px] leading-[1.3] md:mb-[18px] md:text-[22px] lg:mb-[26px] lg:max-w-[520px] lg:text-[27px]">
+                    Je suis développeuse Full-Stack JavaScript, avec un goût particulier pour les interfaces soignées et
+                    les projets bien pensés.
+                </p>
 
-                    {/* ----- Titre ----- */}
-                    <motion.h2
-                        ref={titleRef}
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={isTitleVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="text-5xl lg:text-6xl font-semibold text-title mb-8 leading-tight"
-                    >
-                        À propos de moi
-                    </motion.h2>
-
-                    {/* ----- Texte ----- */}
-                    <motion.div
-                        ref={textRef}
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={isTextVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                        transition={{ duration: 0.8, delay: 0.5 }}
-                        className="text-lg text-text-main space-y-5 leading-relaxed mb-16"
-                    >
-                        <p>
-                            Coder est pour moi bien plus qu'un apprentissage : c'est un espace où je{' '}
-                            <strong>me challenge</strong> et où je <strong>me révèle</strong>.
-                        </p>
-
-                        <p>
-                            J'aime aller au fond des choses, comprendre, ajuster et tester jusqu'à obtenir quelque chose de clair et cohérent. Le développement m'apporte cette{' '}
-                            <strong>concentration</strong> intense où le temps passe sans que je m'en rende compte.
-                        </p>
-
-                        <p>
-                            Après avoir terminé ma formation chez <strong>Interface3</strong> et réalisé un stage en développement web au sein du CHU Saint-Pierre, je suis aujourd’hui à la recherche d’un poste de développeuse fullstack pour continuer à <strong>progresser</strong> et mettre <strong>mes compétences</strong> au service d’une équipe.
-                        </p>
-                    </motion.div>
+                <div className="flex flex-col gap-3.5 text-[15px] leading-[1.8] text-texte md:gap-3 md:text-[14.5px] md:leading-[1.75] lg:max-w-[520px] lg:gap-4 lg:text-[16px] lg:leading-[1.85]">
+                    <p>
+                        J'aime autant concevoir une expérience agréable pour l'utilisateur que comprendre ce qui se passe
+                        derrière l'écran.
+                    </p>
+                    <p>
+                        Ma formation chez Interface3 et mon stage m'ont permis de gagner en autonomie et de concrétiser
+                        mes compétences sur un projet réel.
+                    </p>
+                    <p>
+                        Curieuse et toujours en quête de nouvelles idées, j'explore également de nouvelles technologies,
+                        notamment autour de l'intelligence artificielle et des automatisations.
+                    </p>
+                    <p className="font-medium text-brun">
+                        Mon objectif : continuer à progresser, relever de nouveaux défis et contribuer à des projets qui
+                        méritent d'être construits avec soin.
+                    </p>
                 </div>
 
-                {/* ========== DIV GAUCHE/DROITE ========== */}
-                <div className="grid lg:grid-cols-2 gap-16 items-start">
-
-                    {/* ========== GAUCHE : MA DYNAMIQUE ========== */}
-                    <div>
-                        {/* ----- Ligne ----- */}
-                        <div ref={lineRef2} className="flex items-center mb-12 overflow-hidden">
-                            <motion.div
-                                initial={{ scaleX: 0 }}
-                                animate={isLineVisible2 ? { scaleX: 1 } : { scaleX: 0 }}
-                                transition={{ duration: 1.2, ease: "easeOut" }}
-                                className="h-0.5 bg-gradient-to-r from-purple-accent to-bg-main/0 flex-1 origin-left"
-                            />
-                        </div>
-
-                        {/* ----- Titre ----- */}
-                        <motion.h3
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false, amount: 0.5 }}
-                            transition={{ duration: 0.6 }}
-                            className="text-xl text-title font-semibold mb-6"
-                        >
-                            Ma dynamique
-                        </motion.h3>
-
-                        {/* ----- Timeline ----- */}
-                        <div className="flex flex-col">
-                            {progress.map((item, index) => (
-                                <TimelineItem
-                                    key={item.name}
-                                    item={item}
-                                    index={index}
-                                    isFirst={index === 0}
-                                    isLast={index === progress.length - 1}
-                                />
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* ========== DROITE : CODE + ATOUTS ========== */}
-                    <div>
-                        {/* ========== Code ========== */}
-                        <motion.div
-                            ref={codeRef}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={isCodeVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-                            transition={{ duration: 0.6 }}
-                            className="bg-strenght-bg border border-strenght-border rounded-lg mb-12"
-                        >
-                            {/* ----- Header ----- */}
-                            <div className="h-10 bg-[#080c18] rounded-t-lg border-b-2 border-strenght-border flex items-center px-6">
-                                <motion.p
-                                    initial={{ opacity: 0 }}
-                                    animate={isCodeVisible ? { opacity: 1 } : { opacity: 0 }}
-                                    transition={{ delay: 0.3, duration: 0.5 }}
-                                    className="text-title font-medium"
-                                >
-                                    about.js
-                                </motion.p>
-                            </div>
-
-                            {/* ----- Code content ----- */}
-                            <div className="text-sm leading-6 text-text-main font-fira p-8">
-                                <CodeTypingEffect isVisible={isCodeVisible} />
-                            </div>
-                        </motion.div>
-
-                        {/* ========== Mes atouts ========== */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false, amount: 0.5 }}
-                            transition={{ duration: 0.6 }}
-                            className="mt-20"
-                        >
-                            <h3 className="text-xl font-semibold mb-8 text-title">Mes atouts</h3>
-
-                            <div className="grid grid-cols-2 gap-4">
-                                {myStrengths.map((item, index) => (
-                                    <motion.div
-                                        key={item.name}
-                                        initial={{ opacity: 0, x: 50 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: false, amount: 0.5 }}
-                                        transition={{ duration: 0.8, delay: index * 0.2 }}
-                                        whileHover={{ scale: 1.05, borderColor: '#4C6FFF' }}
-                                        className="bg-strenght-bg border border-strenght-border hover:border-strenght-hover p-4 rounded-lg transition-colors"
-                                    >
-                                        <p className="text-center font-medium text-white">{item.name}</p>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </div>
+                <ul aria-label="Mes qualités" className="mt-7 flex flex-wrap gap-2 md:mt-6 lg:mt-9 lg:gap-2.5">
+                    {qualities.map((quality) => (
+                        <li key={quality}>
+                            <Pill>{quality}</Pill>
+                        </li>
+                    ))}
+                </ul>
+            </Reveal>
         </section>
     )
 }

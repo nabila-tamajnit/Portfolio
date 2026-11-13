@@ -1,0 +1,10 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "redirects": [
+        {
+            "source": "/assets/docs/CV-Nabila-Tamajnit-Dev.pdf",
+            "destination": "/cv-nabila-tamajnit.pdf",
+            "permanent": true
+        }
+    ]
+}

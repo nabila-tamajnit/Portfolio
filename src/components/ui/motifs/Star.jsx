@@ -1,0 +1,8 @@
+// 8-point star from the brand guidelines. Colour it with a fill-* or stroke-* class.
+export const Star = ({ className = "" }) => {
+    return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
+            <path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z" />
+        </svg>
+    )
+}

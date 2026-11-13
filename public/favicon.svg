@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 16 152 184" role="img" aria-label="Logo Nabila Tamajnit">
+  <style>
+    .arch { stroke: #B08A55; }
+    .letter { stroke: #2E1F17; }
+    .bar { stroke: #A3472F; }
+    @media (prefers-color-scheme: dark) {
+      .arch { stroke: #E8B9A5; }
+      .letter { stroke: #FBF7F1; }
+      .bar { stroke: #F2C9A8; }
+    }
+  </style>
+  <path class="arch" d="M30 196V92a70 70 0 0 1 140 0v104" fill="none" stroke-width="1"/>
+  <path class="arch" d="M42 196V92a58 58 0 0 1 116 0v104" fill="none" stroke-width="2"/>
+  <path class="letter" d="M60 168V84l56 84V84" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="bar" d="M92 84H140" fill="none" stroke-width="7" stroke-linecap="round"/>
+</svg>
