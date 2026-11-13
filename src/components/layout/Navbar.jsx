@@ -13,6 +13,7 @@ const navLinkClasses = "transition-colors duration-200 hover:text-brique"
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const menuButtonRef = useRef(null)
+    const headerRef = useRef(null)
     const barRef = useRef(null)
     const [barHeight, setBarHeight] = useState(null)
     const { isHidden, isScrolled, isCompact } = useHideOnScroll()
@@ -35,7 +36,9 @@ export const Navbar = () => {
     const toggleMenu = () => setIsMenuOpen((isOpen) => !isOpen)
     const closeMenu = () => setIsMenuOpen(false)
 
-    // Escape closes the mobile menu and gives focus back to the button that opened it
+    // While the mobile menu is open:
+    // - Escape closes it and gives focus back to the button that opened it
+    // - a click or tap anywhere outside the header closes it
     useEffect(() => {
         if (!isMenuOpen) return
 
@@ -46,8 +49,16 @@ export const Navbar = () => {
             }
         }
 
+        const handlePointerDown = (event) => {
+            if (!headerRef.current?.contains(event.target)) setIsMenuOpen(false)
+        }
+
         document.addEventListener("keydown", handleKeyDown)
-        return () => document.removeEventListener("keydown", handleKeyDown)
+        document.addEventListener("pointerdown", handlePointerDown)
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown)
+            document.removeEventListener("pointerdown", handlePointerDown)
+        }
     }, [isMenuOpen])
 
     // Fixed bar: slides up out of view when scrolling down, comes back when scrolling up.
@@ -61,7 +72,7 @@ export const Navbar = () => {
     ].join(" ")
 
     return (
-        <header className="relative z-50" style={barHeight ? { height: barHeight } : undefined}>
+        <header ref={headerRef} className="relative z-50" style={barHeight ? { height: barHeight } : undefined}>
             <div ref={barRef} className={barClasses}>
                 <m.div {...revealOnLoad(0, -12)} className={`page-container flex items-center justify-between transition-[padding] duration-300 motion-reduce:transition-none ${isCompact ? "py-2.5 md:py-3 lg:py-3.5" : "py-[18px] md:py-6 lg:py-[30px]"}`}>
                     <a href="#accueil" className="flex items-center gap-2.5 lg:gap-3">
