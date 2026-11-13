@@ -1,0 +1,3 @@
+# Apache (OVH): the old CV address (V1) still opens the current CV,
+# for links already shared in applications or on LinkedIn.
+Redirect 301 /assets/docs/CV-Nabila-Tamajnit-Dev.pdf /cv-nabila-tamajnit.pdf
