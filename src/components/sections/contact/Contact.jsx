@@ -19,7 +19,7 @@ export const Contact = () => {
                 </Eyebrow>
             </Reveal>
 
-            <Reveal delay={0.1} distance={32} className="relative overflow-hidden rounded-3xl border border-bordure bg-creme p-3.5 shadow-[0_30px_60px_-30px_rgb(74_40_24/0.28)] md:grid md:grid-cols-[330px_minmax(0,1fr)] md:gap-[18px] md:rounded-[26px] md:p-[18px] lg:flex lg:flex-wrap lg:gap-6 lg:rounded-[28px] lg:p-6 lg:shadow-[0_2px_6px_rgb(74_40_24/0.05),0_30px_60px_-30px_rgb(74_40_24/0.28)]">
+            <Reveal delay={0.1} className="relative overflow-hidden rounded-3xl border border-bordure bg-creme p-3.5 shadow-[0_30px_60px_-30px_rgb(74_40_24/0.28)] md:grid md:grid-cols-[330px_minmax(0,1fr)] md:gap-[18px] md:rounded-[26px] md:p-[18px] lg:flex lg:flex-wrap lg:gap-6 lg:rounded-[28px] lg:p-6 lg:shadow-[0_2px_6px_rgb(74_40_24/0.05),0_30px_60px_-30px_rgb(74_40_24/0.28)]">
                 <ContactArch className="lg:max-w-full lg:min-w-0 lg:flex-[0_1_440px]" />
                 <ContactForm className="lg:min-w-0 lg:flex-[1_1_480px]" />
             </Reveal>

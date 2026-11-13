@@ -23,7 +23,7 @@ export const About = () => {
                 </h2>
             </Reveal>
 
-            <Reveal distance={40} className="mb-[34px] md:col-start-1 md:row-span-2 md:row-start-1 md:mb-0 md:self-center">
+            <Reveal distance={72} className="mb-[34px] md:col-start-1 md:row-span-2 md:row-start-1 md:mb-0 md:self-center">
                 <PortraitArch />
             </Reveal>
 

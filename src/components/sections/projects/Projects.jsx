@@ -63,7 +63,7 @@ export const Projects = () => {
                 </Reveal>
 
                 {/* Current project */}
-                <m.div ref={showcaseRef} {...revealOnScroll(0.1, 32)} className="lg:flex lg:items-center lg:gap-14">
+                <m.div ref={showcaseRef} {...revealOnScroll(0.1)} className="lg:flex lg:items-center lg:gap-14">
                     <DeviceShowcase project={currentProject} className="mt-9 md:mt-11 lg:mt-0 lg:flex-[1.4_1_560px]" />
                     <CarouselControls {...controlsProps} className="mt-[26px] flex items-center justify-between md:hidden" />
                     <ProjectDetails

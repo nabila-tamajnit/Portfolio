@@ -7,7 +7,7 @@ import { revealOnScroll } from "../../../utils/motion"
 // Mobile: name above a 4-column grid. Tablet: 2-column grid. Desktop: one flexible row.
 export const ToolGroup = ({ group, index }) => {
     return (
-        <m.li {...revealOnScroll(0, 20)} className="border-b border-trait py-6 md:grid md:grid-cols-[200px_minmax(0,1fr)] md:items-center md:gap-5 md:py-[26px] lg:flex lg:flex-wrap lg:gap-x-10 lg:gap-y-7 lg:py-[34px]">
+        <m.li {...revealOnScroll()} className="border-b border-trait py-6 md:grid md:grid-cols-[200px_minmax(0,1fr)] md:items-center md:gap-5 md:py-[26px] lg:flex lg:flex-wrap lg:gap-x-10 lg:gap-y-7 lg:py-[34px]">
             <h3 className="mb-[18px] flex items-baseline gap-2.5 md:mb-0 lg:flex-[0_0_260px] lg:gap-3.5">
                 <span aria-hidden="true" className="font-serif text-[18px] italic text-laiton lg:text-[20px]">
                     {formatNumber(index + 1)}

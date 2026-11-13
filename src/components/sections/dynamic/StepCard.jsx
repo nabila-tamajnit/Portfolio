@@ -13,7 +13,7 @@ export const StepCard = ({ step, index, isLast, className = "" }) => {
 
     return (
         <m.li
-            {...revealOnScroll(index * 0.12, 40)}
+            {...revealOnScroll(index * 0.15, 72)}
             className={`relative flex flex-col items-center rounded-t-[160px] rounded-b-[18px] border px-[26px] pb-[30px] pt-[62px] text-center shadow-[0_20px_38px_-18px_rgb(74_40_24/0.3)] md:rounded-t-full md:pb-8 md:pt-[74px] lg:pb-9 lg:pt-[84px] lg:shadow-[0_1px_3px_rgb(74_40_24/0.06),0_20px_38px_-18px_rgb(74_40_24/0.3)] ${background} ${className}`}
         >
             {isLast && (
