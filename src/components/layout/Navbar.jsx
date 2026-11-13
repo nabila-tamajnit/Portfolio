@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { AnimatePresence } from "motion/react"
 import * as m from "motion/react-m"
 import { Logo } from "../ui/Logo"
+import { useHideOnScroll } from "../../hooks/useHideOnScroll"
 import { EASE_OUT, revealOnLoad } from "../../utils/motion"
 import { contactLink, navLinks } from "../../data/navigation"
 
@@ -12,6 +13,7 @@ const navLinkClasses = "transition-colors duration-200 hover:text-brique"
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const menuButtonRef = useRef(null)
+    const { isHidden, isScrolled } = useHideOnScroll()
 
     const toggleMenu = () => setIsMenuOpen((isOpen) => !isOpen)
     const closeMenu = () => setIsMenuOpen(false)
@@ -31,8 +33,18 @@ export const Navbar = () => {
         return () => document.removeEventListener("keydown", handleKeyDown)
     }, [isMenuOpen])
 
+    // Sticky header: slides up out of view when scrolling down, comes back when scrolling up.
+    // It stays visible while the mobile menu is open or while it holds the keyboard focus.
+    // Once the page has moved, it gets the page background and a soft shadow so the content
+    // does not show through.
+    const headerClasses = [
+        "sticky top-0 z-50 transition-[translate,background-color,box-shadow] duration-300 ease-out motion-reduce:transition-none focus-within:translate-y-0",
+        isHidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0",
+        isScrolled ? "bg-lin shadow-[0_10px_30px_-22px_rgb(74_40_24/0.45)]" : "",
+    ].join(" ")
+
     return (
-        <header>
+        <header className={headerClasses}>
             <m.div {...revealOnLoad(0, -12)} className="page-container flex items-center justify-between py-[18px] md:py-6 lg:py-[30px]">
                 <a href="#accueil" className="flex items-center gap-2.5 lg:gap-3">
                     <Logo className="h-9 w-[30px] md:h-[41px] md:w-[34px] lg:h-12 lg:w-10" />
