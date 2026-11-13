@@ -143,6 +143,11 @@
     background-color: var(--color-terracotta-2);
     color: var(--color-brun);
   }
+
+  /* Room above a section reached by a link, so the sticky header never touches its title */
+  html {
+    scroll-padding-top: 40px;
+  }
 }
 
 /* Smooth scrolling to anchors, only for people who did not ask for reduced motion */
